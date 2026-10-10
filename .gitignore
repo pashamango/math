@@ -14,9 +14,10 @@ __pycache__/
 **/.lake/
 **/*.olean
 **/*.ilean
-**/*.c
-# Do not ignore intentionally checked-in .lean source or pinned Lake manifests.
+*.o
+*.so
 **/build/
 **/dist/
 **/coverage/
 *.log
+# Intentional source (.lean, .c) and pinned Lake manifests must remain trackable.
