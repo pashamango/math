@@ -1,0 +1,22 @@
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+.venv/
+__pycache__/
+*.py[cod]
+**/.lake/
+**/*.olean
+**/*.ilean
+**/*.c
+# Do not ignore intentionally checked-in .lean source or pinned Lake manifests.
+**/build/
+**/dist/
+**/coverage/
+*.log
