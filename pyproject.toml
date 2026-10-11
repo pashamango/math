@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pashamango-math-sso"
+version = "0.1.0a0"
+description = "Verified scientific objects and SHA-256 rarity research pilot"
+requires-python = ">=3.11"
+readme = "docs/SSO.md"
+classifiers = ["Programming Language :: Python :: 3", "Development Status :: 3 - Alpha"]
+
+[project.scripts]
+sso = "pashamango.math.sso.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = true
+include = ["pashamango*"]
