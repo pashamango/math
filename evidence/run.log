@@ -1,0 +1,86 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.00s
+     Running `target/debug/amde-navigator-cli`
+===============================================================================
+  AMDE Navigator: Type System Specification & Reference Implementation
+  Ticket: MIN-79 | PRD-26 | Acceptance Benchmark: RP-002
+===============================================================================
+
+--- 1. Formal Navigator Objects (X, R, Sigma, tau, I) ---
+  [1] Object[OBJ-NAT-MULT] 'Natural Numbers Monoid (N+, *)': X=Domain of positive integers under multiplication, R=MultiplicativeMonoid, Σ=["mul(*)", "pow(^)", "gcd", "lcm", "divisible_by(|)"], τ=DiscreteExact (DiscreteIntegerMetric), I=LogarithmicHeight
+  [2] Object[OBJ-VAL-PROFILE] 'Prime Valuation Direct Sum Monoid (Primes ->0 N)': X=Domain of finitely supported prime valuation exponents, R=FreeCommutativeMonoid, Σ=["add(+)", "scale(*)", "support", "min_gcd", "max_lcm"], τ=DiscreteExact (DiscreteProfileMetric), I=LogarithmicValuationWeight
+  [3] Object[OBJ-TRUNC-VAL] 'Truncated Prime Valuation Space (N^K)': X=Finite K-dimensional space of leading prime valuations, R=FiniteComponentwiseLattice, Σ=["component_add", "component_min", "component_max", "dimension"], τ=TruncationCutoff { depth: 3 } (TruncationCutoffMetric), I=TruncatedLogarithmicWeight
+  [4] Object[OBJ-ANALYTIC-XI] 'Analytic Coordinate Domain (R)': X=Domain of real coordinate arguments s for xi-functional evaluation, R=OrderedField, Σ=["eval_xi", "reflect(1-s)", "deriv", "scale"], τ=MetricTolerance { epsilon: 1e-12 } (StandardRealMetric), I=CoordinateMagnitude
+  [5] Object[OBJ-NUMERICAL-XI] 'Numerical Xi Result Space (Float + Tolerance)': X=Space of verified floating-point approximations with certified error bounds, R=ApproximateIntervalLattice, Σ=["value", "error_bound", "check_tolerance", "interval"], τ=MetricTolerance { epsilon: 0.0001 } (CertifiedErrorMetric), I=PrecisionInformation
+
+--- 2. Acceptance Example 1 (RP-002): Prime Factorization = ISO ---
+  n =     1 -> Factorization: 1                  | Recovered:     1 | Roundtrip: true  | ΔI = 0.0e0
+  n =    12 -> Factorization: 2^2 * 3            | Recovered:    12 | Roundtrip: true  | ΔI = 0.0e0
+  n =    60 -> Factorization: 2^2 * 3 * 5        | Recovered:    60 | Roundtrip: true  | ΔI = 0.0e0
+  n =    84 -> Factorization: 2^2 * 3 * 7        | Recovered:    84 | Roundtrip: true  | ΔI = 0.0e0
+  n =   840 -> Factorization: 2^3 * 3 * 5 * 7    | Recovered:   840 | Roundtrip: true  | ΔI = 0.0e0
+  n =  2310 -> Factorization: 2 * 3 * 5 * 7 * 11 | Recovered:  2310 | Roundtrip: true  | ΔI = 0.0e0
+  n = 65537 -> Factorization: 65537              | Recovered: 65537 | Roundtrip: true  | ΔI = 0.0e0
+  => ISO Acceptance: 100% verified across all test cases.
+
+--- 3. Acceptance Example 2 (RP-002): Truncation = LOSSY ---
+  Truncation Horizon: K=3, Basis Primes = [2, 3, 5]
+  n =   12 (2^2 * 3           ) -> Truncated: [2^2, 3^1, 5^0] | I_full = 2.4849 | I_trunc = 2.4849 | Loss ΔI = 0.0000
+  n =   60 (2^2 * 3 * 5       ) -> Truncated: [2^2, 3^1, 5^1] | I_full = 4.0943 | I_trunc = 4.0943 | Loss ΔI = 0.0000
+  n =   84 (2^2 * 3 * 7       ) -> Truncated: [2^2, 3^1, 5^0] | I_full = 4.4308 | I_trunc = 2.4849 | Loss ΔI = 1.9459
+  n =  420 (2^2 * 3 * 5 * 7   ) -> Truncated: [2^2, 3^1, 5^1] | I_full = 6.0403 | I_trunc = 4.0943 | Loss ΔI = 1.9459
+  n =  924 (2^2 * 3 * 7 * 11  ) -> Truncated: [2^2, 3^1, 5^0] | I_full = 6.8287 | I_trunc = 2.4849 | Loss ΔI = 4.3438
+
+  Fiber analysis for target [2^2, 3^1, 5^0]:
+    - Preimage element: 2^2 * 3
+    - Preimage element: 2^2 * 3 * 7
+    - Preimage element: 2^2 * 3 * 7 * 11
+  => LOSSY Acceptance: Non-injectivity & quantified information loss strictly verified.
+
+--- 4. Acceptance Example 3 (RP-002): Numerical Xi = APPROXIMATE ---
+  s=2.0000 -> Value: 0.52351924 | Certified Error ε: 7.96e-5 | Tol Check: true  | Reflection Discrepancy: 0.00e0
+  s=3.0000 -> Value: 0.57393986 | Certified Error ε: 2.98e-8 | Tol Check: true  | Reflection Discrepancy: 0.00e0
+  s=4.0000 -> Value: 0.65797363 | Certified Error ε: 1.27e-11 | Tol Check: true  | Reflection Discrepancy: 0.00e0
+  s=6.0000 -> Value: 0.98432624 | Certified Error ε: 3.02e-18 | Tol Check: true  | Reflection Discrepancy: 0.00e0
+  => APPROXIMATE Acceptance: Certified metric tolerance & reflection symmetry verified.
+
+--- 5. Adjoint Pair = ADJOINT (Galois Connection) ---
+  Truncated input w:         [2^3, 3^1, 5^2]
+  L(w) (Left adjoint embed): 2^3 * 3 * 5^2
+  R(L(w)) (Unit roundtrip):  [2^3, 3^1, 5^2]
+  Unit Identity R(L(w)) == w: true
+  Full profile v (840):      2^3 * 3 * 5 * 7
+  L(R(v)) (Counit projection):2^3 * 3 * 5
+  Counit Inequality L(R(v)) <= v: true
+  => ADJOINT Acceptance: Galois connection verified.
+
+--- 6. Category Composition Algebra ---
+  Composed: ValuationTruncationLossy ∘ PrimeFactorizationIso
+  Composed Kind: LOSSY
+  n = 840 -> Composed output: [2^3, 3^1, 5^1]
+  => Composition Algebra verified.
+
+--- 7. Claim Registry & Audit Manifest ---
+  Total claims logged: 18
+  All claims verified: true
+    [CLAIM-MIN79-0001-48f94e0b] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0002-c1dabfed] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0003-4f7c5270] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0004-ac38d744] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0005-0279bf62] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0006-bdb39724] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0007-9bb05705] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0008-92754cd9] ValuationTruncationLossy (LOSSY) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
+    [CLAIM-MIN79-0009-288b1d5b] ValuationTruncationLossy (LOSSY) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
+    [CLAIM-MIN79-0010-cb1f8eb3] ValuationTruncationLossy (LOSSY) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
+    [CLAIM-MIN79-0011-49c80c28] ValuationTruncationLossy (LOSSY) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
+    [CLAIM-MIN79-0012-82c5f96c] ValuationTruncationLossy (LOSSY) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
+    [CLAIM-MIN79-0013-dc4eddce] NumericalXiApproximate (APPROXIMATE) | Analytic Coordinate Domain (R) -> Numerical Xi Result Space (Float + Tolerance) | verified=true
+    [CLAIM-MIN79-0014-d8a20260] NumericalXiApproximate (APPROXIMATE) | Analytic Coordinate Domain (R) -> Numerical Xi Result Space (Float + Tolerance) | verified=true
+    [CLAIM-MIN79-0015-bb8ffcc0] NumericalXiApproximate (APPROXIMATE) | Analytic Coordinate Domain (R) -> Numerical Xi Result Space (Float + Tolerance) | verified=true
+    [CLAIM-MIN79-0016-385f7a64] NumericalXiApproximate (APPROXIMATE) | Analytic Coordinate Domain (R) -> Numerical Xi Result Space (Float + Tolerance) | verified=true
+    [CLAIM-MIN79-0017-ebe893a2] ValuationAdjointEmbedding (ADJOINT) | Truncated Prime Valuation Space (N^K) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0018-10d4ef72] ValuationTruncationLossy ∘ PrimeFactorizationIso (LOSSY) | Natural Numbers Monoid (N+, *) -> Truncated Prime Valuation Space (N^K) | verified=true
+
+===============================================================================
+  ACCEPTANCE PASSED: All RP-002 examples typed, executed, and verified.
+===============================================================================

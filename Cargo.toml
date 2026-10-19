@@ -1,0 +1,17 @@
+[package]
+name = "amde-navigator"
+version = "0.1.0"
+edition = "2021"
+authors = ["agy (Wolfram)"]
+description = "MIN-79: AMDE Navigator — type system spec and reference implementation (PRD-26 / RP-002)"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+
+[lib]
+name = "amde_navigator"
+path = "src/lib.rs"
+
+[[bin]]
+name = "amde-navigator-cli"
+path = "src/main.rs"
