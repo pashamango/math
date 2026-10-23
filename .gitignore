@@ -1,0 +1,23 @@
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+.venv/
+__pycache__/
+*.py[cod]
+**/.lake/
+**/*.olean
+**/*.ilean
+*.o
+*.so
+**/build/
+**/dist/
+**/coverage/
+*.log
+# Intentional source (.lean, .c) and pinned Lake manifests must remain trackable.
