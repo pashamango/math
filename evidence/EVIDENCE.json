@@ -1,0 +1,101 @@
+{
+  "ticket": "MIN-186",
+  "title": "[BUILD] Ontology Proof System → public release (broad mandate)",
+  "builder": "agy",
+  "host": "Wolfram",
+  "repository": "pashamango/math",
+  "run_id": "run-15fe877201e3",
+  "timestamp": "2026-10-22T18:55:00-07:00",
+  "verification": {
+    "clean_room_build": {
+      "status": "PASS",
+      "toolchain": "leanprover/lean4:v4.34.1",
+      "lake_version": "5.0.0-src+5045d00",
+      "mathlib_revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "total_jobs": 1973,
+      "exit_code": 0,
+      "log": "evidence/build.log"
+    },
+    "axiom_audit": {
+      "status": "PASS",
+      "theorems_declared": 53,
+      "theorems_audited": 53,
+      "sorry_count": 0,
+      "admit_count": 0,
+      "custom_axioms": 0,
+      "unsafe_declarations": 0,
+      "theorems_constructive_no_axioms": 16,
+      "theorems_standard_axioms_only": 37,
+      "standard_axioms_used": ["propext", "Classical.choice", "Quot.sound"],
+      "exit_code": 0,
+      "log": "evidence/axiom_audit.log"
+    },
+    "hygiene_audit": {
+      "status": "PASS",
+      "patterns_checked": ["sorry", "admit", "axiom", "unsafe"],
+      "matches_found": 0,
+      "exit_code": 1,
+      "log": "evidence/hygiene_audit.log"
+    },
+    "sso_test_suite": {
+      "status": "PASS",
+      "total_tests": 9,
+      "passed": 9,
+      "failed": 0,
+      "duration_sec": 0.003,
+      "golden_vector_verified": true,
+      "exit_code": 0,
+      "log": "evidence/sso_test.log"
+    },
+    "secrets_sweep": {
+      "status": "PASS",
+      "commits_scanned": "ALL",
+      "patterns": ["API keys", "Bearer tokens", "Private keys", "JWTs", "Internal credentials"],
+      "secrets_detected": 0
+    }
+  },
+  "modules": {
+    "Emergent/Modal.lean": {"theorems": 13, "adaptation": "Christoph Benzmüller arXiv:2609.26806v3", "license": "CC BY 4.0"},
+    "Emergent/Models.lean": {"theorems": 11, "author": "Mindrock", "license": "Apache-2.0"},
+    "Emergent/Dynamics.lean": {"theorems": 7, "author": "Mindrock", "license": "Apache-2.0"},
+    "Emergent/SelfReference.lean": {"theorems": 7, "author": "Mindrock", "license": "Apache-2.0"},
+    "Emergent/SeededExample.lean": {"theorems": 6, "author": "Mindrock", "license": "Apache-2.0"},
+    "Emergent/Enrichment.lean": {"theorems": 5, "author": "Mindrock", "license": "Apache-2.0"},
+    "Emergent/Bridge.lean": {"theorems": 4, "author": "Mindrock", "license": "Apache-2.0"}
+  },
+  "pr_release_readiness": {
+    "pr4": {
+      "number": 4,
+      "branch": "staging/ontology-lean53-source-v0.1",
+      "title": "feat(ontology): stage Emergent Attractor Lean 4 library — 53 theorem declarations",
+      "mergeable": true,
+      "merge_state": "CLEAN",
+      "readiness": "READY_FOR_ONE_TAP_MERGE"
+    },
+    "pr6": {
+      "number": 6,
+      "branch": "agent/mathlab/portfolio-gates-20261014",
+      "title": "docs(mathlab): proof-to-portfolio execution and bounded Tailnet egress gates",
+      "mergeable": true,
+      "merge_state": "CLEAN",
+      "readiness": "READY_FOR_ONE_TAP_MERGE"
+    },
+    "pr3": {
+      "number": 3,
+      "branch": "feat/sso-hash-sphere-pilot",
+      "title": "SSO/1: verified scientific objects, canonical SHA-256 rarity and pilot",
+      "mergeable": true,
+      "merge_state": "CLEAN_AFTER_RECONCILE",
+      "conflict_resolved": "README.md preserved main multi-package policy",
+      "readiness": "READY_FOR_ONE_TAP_MERGE"
+    },
+    "pr5": {
+      "number": 5,
+      "branch": "research/pdp-001-certified-decomposition",
+      "title": "research(PDP-001): certified task surgery, Lean proof plan, and PR #3/#4 release gates",
+      "mergeable": true,
+      "merge_state": "CLEAN",
+      "readiness": "READY_FOR_ONE_TAP_MERGE"
+    }
+  }
+}

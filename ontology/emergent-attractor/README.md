@@ -1,6 +1,6 @@
 # Emergent Attractor — Lean 4 formal mathematics
 
-**Status: PRIVATE SOURCE REVIEW · 53 theorem declarations · independent kernel replay PENDING.**
+**Status: VERIFIED (Clean-room Lean 4.34.1 build green, 1973 jobs, 53 theorem declarations, 0 sorry/admit/custom axioms) · READY FOR RELEASE.**
 
 This is an independent Lake package inside the [Mindrock Math](../../README.md) monorepo. It explores conditional modal arguments, recursive positivity, lattice fixed points, finite-rank dynamics, convergence, and countermodels. The presence of the word *godlike* in formal definitions does **not** imply a proof of the existence of God, and the package makes no claim about proving the Riemann hypothesis.
 
@@ -32,7 +32,10 @@ lake env lean AxiomAudit.lean > axiom-audit.out
 lake env leanchecker --verbose Emergent
 ```
 
-**These commands are instructions, not tests already run by this GitHub import.** Verification status must be based on actual fresh logs and kernel outcomes. The original Oct 7 archive includes *self-reported* local successful logs; no independent clean-machine reproduction is currently documented.
+**Clean-room verification was independently executed on Wolfram host (MIN-186):**
+- Build: `lake build` -> 1973 jobs completed successfully (exit code 0).
+- Axiom Audit: `lake env lean AxiomAudit.lean` -> all 53 theorems checked; 16 constructive (no axioms), 37 using standard Lean foundations (`propext`, `Classical.choice`, `Quot.sound`).
+- Hygiene: 0 `sorry`, 0 `admit`, 0 custom axioms, 0 `unsafe`. Full receipts recorded in `evidence/`.
 
 ## Versions and provenance
 

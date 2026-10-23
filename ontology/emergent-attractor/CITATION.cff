@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this formalization or software in your research, please cite it as below."
+title: "Mindrock Math: Emergent Attractor Formal Ontology & Proof System"
+version: 0.1.0
+date-released: 2026-10-22
+authors:
+  - family-names: Cherkashin
+    given-names: Pavel
+    email: pavel@mindrock.capital
+    affiliation: "Mindrock Capital"
+repository-code: "https://github.com/pashamango/math"
+license: Apache-2.0
+keywords:
+  - "formal verification"
+  - "lean 4"
+  - "interactive theorem proving"
+  - "modal logic"
+  - "Scott ontological argument"
+  - "fixed points"
+  - "reproducible mathematics"
