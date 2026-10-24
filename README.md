@@ -21,7 +21,7 @@ The initial Emergent Attractor research archive reports **7 substantive Lean mod
 
 ## License and upstream research
 
-Original code is intended to be released under [Apache License 2.0](LICENSE), **except where otherwise noted**. Adapted upstream source material retains the applicable third-party license (including CC BY 4.0), authorship credit and change notices. See [NOTICE.md](NOTICE.md) and each package's `docs/SOURCES.md`. Do not infer that a root license relicenses third-party works.
+Original code is released under the [MIT License](LICENSE), **except where otherwise noted**. Adapted upstream source material retains the applicable third-party license (including CC BY 4.0), authorship credit and change notices. See [NOTICE.md](NOTICE.md) and each package's `docs/SOURCES.md`. Do not infer that a root license relicenses third-party works.
 
 ## Release and contributions
 
