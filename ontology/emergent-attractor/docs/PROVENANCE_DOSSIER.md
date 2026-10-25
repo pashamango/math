@@ -13,7 +13,7 @@ The specifier's prior source exposure is disclosed; isolation applies to the imp
 
 ## Integrity receipts
 
-- Current module SHA-256: `07ba239a1c1cfef5806a480b4be3d11f0c8d88ab827f4492b876ae092bb25f65`
+- Current module SHA-256: `5a636d8e3d637281ff0e3415163ceb4392455f5798e1b3794a819b0dd3cea928`
 - Historical upstream article/source archive SHA-256: `27bbcd73582c190a0831c74de9710a6ab3a1e295d07050661c5e7cdf950c2a86`
 - API specification: delivered directly in the isolated task; it contained definitions and theorem statements only, not proof bodies.
 - CI run for this implementation: pending.

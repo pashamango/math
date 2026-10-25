@@ -25,13 +25,14 @@ structure ScottAxioms {E : Type v} {W : Type u} (R : W → W → Prop) (actual :
 variable {E : Type v} {W : Type u} {R : W → W → Prop} {actual : Property E W} {P : Positivity E W}
 theorem positive_possible (A : ScottAxioms R actual P) (p : Property E W) (w : W) (hp : P p w) : diamond R (fun z => ∃ x, actual x z ∧ p x z) w := by
   classical
-  by_contra h
+  apply Classical.byContradiction
+  intro h
   have hno : ¬ ∃ z, R w z ∧ ∃ x, actual x z ∧ p x z := by
     simpa [diamond] using h
   have htransfer :
       ∀ z, R w z → ∀ y, actual y z → p y z → negProperty p y z := by
     intro z hr y ha hpy
-    exact fun hpy' => hno ⟨z, hr, y, ha, hpy⟩
+    exact fun _ => hno ⟨z, hr, y, ha, hpy⟩
   have hneg : P (negProperty p) w := A.a2 p (negProperty p) w hp htransfer
   exact (A.a1 p w).mpr hneg hp
 
@@ -40,7 +41,8 @@ theorem possible_godlike (A : ScottAxioms R actual P) (w : W) : diamond R (fun z
 
 theorem witnessed_positive (A : ScottAxioms R actual P) {x : E} {w : W} (hg : godlike P x w) {p : Property E W} (hp : p x w) : P p w := by
   classical
-  by_contra hnot
+  apply Classical.byContradiction
+  intro hnot
   have hneg : P (negProperty p) w := (A.a1 p w).mp hnot
   exact (hg (negProperty p) hneg) hp
 
@@ -60,7 +62,7 @@ theorem scott_necessary (A : ScottAxioms R actual P) (symm : ∀ w z, R w z → 
   have hne_u : P (necessaryExistence R actual) u :=
     (A.a4 (necessaryExistence R actual) z hne) u hzu
   have hnex : necessaryExistence R actual x u :=
-    witnessed_positive A hxg hne_u
+    hxg (necessaryExistence R actual) hne_u
   have hbox := hnex (godlike P) (godlike_essence A hxg)
   have huz : R u z := symm z u hzu
   exact hbox z huz
@@ -81,7 +83,8 @@ theorem scott_modal_collapse (A : ScottAxioms R actual P) (symm : ∀ w z, R w z
 
 theorem scott_unique (A : ScottAxioms R actual P) {x y : E} {w : W} (hx : godlike P x w) (hy : godlike P y w) : x = y := by
   classical
-  by_contra hxy
+  apply Classical.byContradiction
+  intro hxy
   have hneq : x ≠ y := fun h => hxy h
   have hpos : P (fun a (_ : W) => a = x) w := by
     apply witnessed_positive A hx
@@ -120,7 +123,7 @@ theorem principal_ultrafilter (g : E) (w : W) : LocalUltrafilter (principal g) w
   · intro p q himp hp
     exact himp g hp
   · intro p
-    exact em (p g w)
+    exact Classical.em (p g w)
 theorem all_positive_has_no_godlike (w : W) (hall : ∀ p, P p w) : ¬ ∃ x, godlike P x w := by
   intro h
   rcases h with ⟨x, hx⟩
@@ -128,3 +131,4 @@ theorem all_positive_has_no_godlike (w : W) (hall : ∀ p, P p w) : ¬ ∃ x, go
   exact hx (fun _ _ => False) hfalse
 
 end Emergent
+
