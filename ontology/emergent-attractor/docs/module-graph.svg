@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="800" viewBox="0 0 1240 800" role="img">
+<title>Emergent Attractor — module dependency graph</title>
+<desc>Seven Lean modules, 53 theorem declarations. Arrows show the main module-level theorem-call dependencies. The graph is not a single chain: branches, standalone examples and countermodels are independent. R is accessibility, not time.</desc>
+<rect x="0" y="0" width="1240" height="800" fill="#ffffff"/>
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+<path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+</marker>
+<marker id="arrowRose" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+<path d="M0,0 L0,6 L9,3 z" fill="#e11d48"/>
+</marker>
+</defs>
+<text x="40" y="38" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#0f172a">Emergent Attractor — module graph</text>
+<text x="40" y="62" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#475569">53 theorem declarations · 7 modules · v0.1.0 · arrows = main theorem-call dependencies</text>
+
+<!-- Top row: source branches -->
+<g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<rect x="40" y="90" width="370" height="150" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="60" y="118" font-size="17" font-weight="700" fill="#1e3a8a">Modal — Scott-style branch</text>
+<text x="60" y="140" font-size="13" fill="#334155">P01–P13 · 13 theorems</text>
+<text x="60" y="162" font-size="13" fill="#334155">Possibility, necessity, uniqueness,</text>
+<text x="60" y="182" font-size="13" fill="#334155">modal collapse — under explicit</text>
+<text x="60" y="202" font-size="13" fill="#334155">axioms A1–A5 and frame assumptions.</text>
+
+<rect x="435" y="90" width="370" height="150" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+<text x="455" y="118" font-size="17" font-weight="700" fill="#4c1d95">SelfReference — fixed points</text>
+<text x="455" y="140" font-size="13" fill="#334155">T01–T07 · 7 theorems</text>
+<text x="455" y="162" font-size="13" fill="#334155">Least fixed point of a monotone</text>
+<text x="455" y="182" font-size="13" fill="#334155">operator: minimal closure, seed</text>
+<text x="455" y="202" font-size="13" fill="#334155">survival, coherence, symmetry.</text>
+
+<rect x="830" y="90" width="370" height="150" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="850" y="118" font-size="17" font-weight="700" fill="#14532d">Dynamics — orbits and rank</text>
+<text x="850" y="140" font-size="13" fill="#334155">D01–D07 · 7 theorems</text>
+<text x="850" y="162" font-size="13" fill="#334155">Orbit iteration, finite rank descent,</text>
+<text x="850" y="182" font-size="13" fill="#334155">persistence after reaching;</text>
+<text x="850" y="202" font-size="13" fill="#334155">fixed point ≠ attraction (D06).</text>
+</g>
+
+<!-- Middle: Bridge -->
+<g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<rect x="435" y="300" width="370" height="150" rx="14" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+<text x="455" y="328" font-size="17" font-weight="700" fill="#78350f">Bridge — recursive positivity</text>
+<text x="455" y="350" font-size="13" fill="#334155">B01–B04 · 4 theorems</text>
+<text x="455" y="372" font-size="13" fill="#334155">Safe closure + supplied target +</text>
+<text x="455" y="392" font-size="13" fill="#334155">rank descent ⇒ godlike target</text>
+<text x="455" y="412" font-size="13" fill="#334155">reached in every accessible world.</text>
+</g>
+
+<!-- Bottom row -->
+<g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<rect x="40" y="480" width="370" height="170" rx="14" fill="#fff1f2" stroke="#e11d48" stroke-width="2"/>
+<text x="60" y="508" font-size="17" font-weight="700" fill="#881337">Models — countermodels</text>
+<text x="60" y="530" font-size="13" fill="#334155">M01–M11 · 11 theorems</text>
+<text x="60" y="552" font-size="13" fill="#334155">Singleton Scott model, two-world</text>
+<text x="60" y="572" font-size="13" fill="#334155">countermodels, toy laws.</text>
+<text x="60" y="592" font-size="13" fill="#334155">Uses P08, P12 (Modal);</text>
+<text x="60" y="612" font-size="13" fill="#334155">D03, orbit (Dynamics).</text>
+
+<rect x="435" y="480" width="370" height="170" rx="14" fill="#f0fdfa" stroke="#0d9488" stroke-width="2"/>
+<text x="455" y="508" font-size="17" font-weight="700" fill="#134e4a">SeededExample — concrete instance</text>
+<text x="455" y="530" font-size="13" fill="#334155">S01–S06 · 6 theorems</text>
+<text x="455" y="552" font-size="13" fill="#334155">Seed 0 survives closure, rule is safe,</text>
+<text x="455" y="572" font-size="13" fill="#334155">unique recursive target, finite</text>
+<text x="455" y="592" font-size="13" fill="#334155">emergence under both toy laws.</text>
+<text x="455" y="612" font-size="13" fill="#334155">Uses T01; B01, B02; M10.</text>
+
+<rect x="830" y="480" width="370" height="170" rx="14" fill="#f8fafc" stroke="#64748b" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="850" y="508" font-size="17" font-weight="700" fill="#334155">Enrichment — separate comparison</text>
+<text x="850" y="530" font-size="13" fill="#334155">E01–E05 · 5 theorems</text>
+<text x="850" y="552" font-size="13" fill="#334155">Mathlib contraction attractor,</text>
+<text x="850" y="572" font-size="13" fill="#334155">rotation cycles, probability-one</text>
+<text x="850" y="592" font-size="13" fill="#334155">vs modal necessity.</text>
+<text x="850" y="612" font-size="13" fill="#334155">No bridge arrows — comparison only.</text>
+</g>
+
+<!-- Arrows -->
+<g stroke-width="2" fill="none">
+<line x1="620" y1="240" x2="620" y2="300" stroke="#334155" marker-end="url(#arrow)"/>
+<polyline points="940,240 940,270 740,270 740,300" stroke="#334155" marker-end="url(#arrow)"/>
+<line x1="225" y1="240" x2="225" y2="480" stroke="#334155" marker-end="url(#arrow)"/>
+<line x1="620" y1="450" x2="620" y2="480" stroke="#334155" marker-end="url(#arrow)"/>
+<line x1="560" y1="480" x2="560" y2="450" stroke="#e11d48" stroke-dasharray="7 5" marker-end="url(#arrowRose)"/>
+</g>
+<text x="568" y="470" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#e11d48">checks</text>
+
+<!-- Footnote -->
+<g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#475569">
+<text x="40" y="700">Arrows show the main module-level dependencies. The graph is not a single chain:</text>
+<text x="40" y="722">branches, standalone examples and countermodels are independent. R is accessibility, not time.</text>
+<text x="40" y="744">Countermodels mark where inference stops; the essay's metaphysical reading is not a theorem.</text>
+</g>
+</svg>
