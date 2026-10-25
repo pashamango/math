@@ -10,6 +10,12 @@ The reference Scott branch derives possibility, necessity, uniqueness and modal 
 
 These results do not identify a formal object with a real deity or derive physical laws. The two proposals in the essay are an interpretive research program; their precise relationship to the existing formalization is documented in the claim map. All substantive modal, closure, rank and contraction hypotheses are part of each theorem's contract. A kernel-axiom whitelist does not discharge them.
 
+## Module graph
+
+![Module dependency graph](docs/module-graph.svg)
+
+Arrows show the main module-level dependencies. The graph is not a single chain: branches, standalone examples and countermodels are independent. R is accessibility, not time; countermodels mark where inference stops.
+
 ## Verification
 
 Toolchain: `leanprover/lean4:v4.34.1`. mathlib revision: `d13f23b723b8a846827a245b89c10fc7d3f11612`; remaining Git dependencies are locked in `lake-manifest.json`.
