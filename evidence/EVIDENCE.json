@@ -26,13 +26,22 @@
       "unsafe_declarations": 0,
       "theorems_constructive_no_axioms": 16,
       "theorems_standard_axioms_only": 37,
-      "standard_axioms_used": ["propext", "Classical.choice", "Quot.sound"],
+      "standard_axioms_used": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
       "exit_code": 0,
       "log": "evidence/axiom_audit.log"
     },
     "hygiene_audit": {
       "status": "PASS",
-      "patterns_checked": ["sorry", "admit", "axiom", "unsafe"],
+      "patterns_checked": [
+        "sorry",
+        "admit",
+        "axiom",
+        "unsafe"
+      ],
       "matches_found": 0,
       "exit_code": 1,
       "log": "evidence/hygiene_audit.log"
@@ -50,18 +59,52 @@
     "secrets_sweep": {
       "status": "PASS",
       "commits_scanned": "ALL",
-      "patterns": ["API keys", "Bearer tokens", "Private keys", "JWTs", "Internal credentials"],
+      "patterns": [
+        "API keys",
+        "Bearer tokens",
+        "Private keys",
+        "JWTs",
+        "Internal credentials"
+      ],
       "secrets_detected": 0
     }
   },
   "modules": {
-    "Emergent/Modal.lean": {"theorems": 13, "adaptation": "Christoph Benzmüller arXiv:2609.26806v3", "license": "CC BY 4.0"},
-    "Emergent/Models.lean": {"theorems": 11, "author": "Mindrock", "license": "Apache-2.0"},
-    "Emergent/Dynamics.lean": {"theorems": 7, "author": "Mindrock", "license": "Apache-2.0"},
-    "Emergent/SelfReference.lean": {"theorems": 7, "author": "Mindrock", "license": "Apache-2.0"},
-    "Emergent/SeededExample.lean": {"theorems": 6, "author": "Mindrock", "license": "Apache-2.0"},
-    "Emergent/Enrichment.lean": {"theorems": 5, "author": "Mindrock", "license": "Apache-2.0"},
-    "Emergent/Bridge.lean": {"theorems": 4, "author": "Mindrock", "license": "Apache-2.0"}
+    "Emergent/Modal.lean": {
+      "theorems": 13,
+      "adaptation": "Christoph Benzmüller arXiv:2609.26806v3",
+      "license": "CC BY 4.0"
+    },
+    "Emergent/Models.lean": {
+      "theorems": 11,
+      "author": "Mindrock",
+      "license": "MIT"
+    },
+    "Emergent/Dynamics.lean": {
+      "theorems": 7,
+      "author": "Mindrock",
+      "license": "MIT"
+    },
+    "Emergent/SelfReference.lean": {
+      "theorems": 7,
+      "author": "Mindrock",
+      "license": "MIT"
+    },
+    "Emergent/SeededExample.lean": {
+      "theorems": 6,
+      "author": "Mindrock",
+      "license": "MIT"
+    },
+    "Emergent/Enrichment.lean": {
+      "theorems": 5,
+      "author": "Mindrock",
+      "license": "MIT"
+    },
+    "Emergent/Bridge.lean": {
+      "theorems": 4,
+      "author": "Mindrock",
+      "license": "MIT"
+    }
   },
   "pr_release_readiness": {
     "pr4": {
@@ -97,5 +140,6 @@
       "merge_state": "CLEAN",
       "readiness": "READY_FOR_ONE_TAP_MERGE"
     }
-  }
+  },
+  "publication_editor_note": "Historical builder testimony from MIN-186; referenced raw logs are absent from this checkout. Original-module license labels corrected to MIT under author instruction; this correction does not re-execute or certify historical checks. Current receipts are tracked in the package publication evidence."
 }

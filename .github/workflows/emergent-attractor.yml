@@ -47,6 +47,8 @@ jobs:
         run: |
           lake exe cache get 2>&1 | tee verification/dependencies.log
           git diff --exit-code -- lean-toolchain lakefile.lean lake-manifest.json
+      - name: Remove local package build products
+        run: python3 -c "import shutil; shutil.rmtree('.lake/build', ignore_errors=True)"
       - name: Lake build
         id: build
         run: |
@@ -56,40 +58,14 @@ jobs:
         id: audit
         run: |
           lake env lean AxiomAudit.lean 2>&1 | tee verification/axiom-audit.log
-          python3 - <<'PY' | tee verification/axiom-summary.log
-          import re
-          from pathlib import Path
-          expected = re.findall(r"^#print axioms (\S+)$", Path("AxiomAudit.lean").read_text(), re.M)
-          assert len(expected) == 53 and len(set(expected)) == 53, "Expected 53 unique audit declarations"
-          text = Path("verification/axiom-audit.log").read_text()
-          rows = re.findall(r"'([^']+)' (depends on axioms: \[[^\]]*\]|does not depend on any axioms)", text)
-          assert len(rows) == len(expected), f"Incomplete audit: {len(rows)} / {len(expected)}"
-          assert {name for name, _ in rows} == set(expected), "Unexpected or missing declarations"
-          allowed = {"propext", "Classical.choice", "Quot.sound"}
-          constructive = 0
-          for name, result in rows:
-              if result == "does not depend on any axioms":
-                  constructive += 1
-                  continue
-              axioms = {a.strip() for a in result.split("[", 1)[1].rstrip("]").split(",") if a.strip()}
-              assert axioms <= allowed, f"{name}: forbidden axioms {axioms - allowed}"
-          print(f"PASS: {len(rows)} declarations; {constructive} without axioms; {len(rows)-constructive} using only approved Lean foundations")
-          PY
+          python3 scripts/check_audit.py verification/axiom-audit.log | tee verification/axiom-summary.log
           printf '0\n' > verification/audit-exit-code.txt
-      - name: Check source hygiene
+      - name: Test audit gate with fault injection
+        run: python3 scripts/test_audit_gate.py 2>&1 | tee verification/gate-tests.log
+      - name: Kernel replay of all project modules
         run: |
-          python3 - <<'PY' | tee verification/hygiene.log
-          import re
-          from pathlib import Path
-          files = [Path("Emergent.lean"), Path("AxiomAudit.lean"), *Path("Emergent").glob("*.lean")]
-          for p in files:
-              text = p.read_text()
-              assert not re.search(r"\b(sorry|admit|unsafe)\b", text), f"Forbidden token in {p}"
-              assert not re.search(r"^\s*(?:private\s+)?axiom\s", text, re.M), f"Custom axiom in {p}"
-          declarations = sum(len(re.findall(r"^theorem\s+", p.read_text(), re.M)) for p in files)
-          assert declarations == 53, f"Unexpected theorem count: {declarations}"
-          print(f"PASS: {len(files)} source files; {declarations} theorem declarations; no placeholder, unsafe or custom axiom tokens")
-          PY
+          lake env leanchecker --verbose Emergent 2>&1 | tee verification/kernel-replay.log
+          printf '0\n' > verification/kernel-exit-code.txt
       - name: Preserve verification receipt
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

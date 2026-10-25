@@ -1,55 +1,36 @@
-# Emergent Attractor — Lean 4 formal mathematics
+# Emergent Attractor
 
-**Status: VERIFIED (Clean-room Lean 4.34.1 build green, 1973 jobs, 53 theorem declarations, 0 sorry/admit/custom axioms) · READY FOR RELEASE.**
+A Lean 4 library of conditional modal arguments, recursive positivity, fixed points, dynamics and countermodels. **53 theorem declarations across seven source modules.**
 
-This is an independent Lake package inside the [Mindrock Math](../../README.md) monorepo. It explores conditional modal arguments, recursive positivity, lattice fixed points, finite-rank dynamics, convergence, and countermodels. The presence of the word *godlike* in formal definitions does **not** imply a proof of the existence of God, and the package makes no claim about proving the Riemann hypothesis.
+[Claims and hypotheses](docs/CLAIMS.md) · [All signatures](docs/SIGNATURES.md) · [Models](docs/MODELS.md) · [Separate AI review](docs/INDEPENDENT_REVIEW.md) · [Author's essay](docs/ESSAY.md)
 
-## Source modules
+## What the library establishes
 
-| Module | Theorem declarations | Subject |
-| --- | ---: | --- |
-| `Emergent/Modal.lean` | 13 | Scott-style modal embedding, explicit assumptions, principal ultrafilters |
-| `Emergent/Models.lean` | 11 | Finite countermodels, contingent actuality, distinct toy laws |
-| `Emergent/Dynamics.lean` | 7 | Iteration, finite-rank reachability, cycles, non-attraction |
-| `Emergent/SelfReference.lean` | 7 | Least and greatest fixed points, coherent recursive theories |
-| `Emergent/SeededExample.lean` | 6 | A rule that derives properties and an explicit attractor |
-| `Emergent/Enrichment.lean` | 5 | Contracting maps, complex quarter-turn, probability-versus-necessity |
-| `Emergent/Bridge.lean` | 4 | Conditions connecting recursive positivity to attraction |
-| **TOTAL** | **53** | Static declaration count; not independent kernel verification |
+The reference Scott branch derives possibility, necessity, uniqueness and modal collapse under explicit assumptions. A separate recursive branch combines safe monotone closure with supplied targets and natural-number rank descent. Concrete countermodels show why fixedness, attraction, probability one and necessity must be distinguished. A seeded example makes a nonconstant closure rule and finite dynamics explicit. Standard mathlib contraction results provide a separate asymptotic convergence theorem.
 
-Entry point: [`Emergent.lean`](Emergent.lean). The [axiom audit](AxiomAudit.lean) names all 53 declarations for individual `#print axioms` inspection. Imported theorems and auxiliary definitions are separate from these 53 `theorem` declarations.
+These results do not identify a formal object with a real deity or derive physical laws. The two proposals in the essay are an interpretive research program; their precise relationship to the existing formalization is documented in the claim map. All substantive modal, closure, rank and contraction hypotheses are part of each theorem's contract. A kernel-axiom whitelist does not discharge them.
 
-## Reproduce locally
+## Verification
 
-Requires the pinned Lean 4 toolchain and the package-local Lake dependency lockfile. **Work from this directory**, not from the monorepo root:
+Toolchain: `leanprover/lean4:v4.34.1`. mathlib revision: `d13f23b723b8a846827a245b89c10fc7d3f11612`; remaining Git dependencies are locked in `lake-manifest.json`.
 
 ```sh
 cd ontology/emergent-attractor
+lake exe cache get
 lake build
-lake env lean AxiomAudit.lean > axiom-audit.out
-# Independently compare every reported axiom with the approved Lean axioms.
-# If leanchecker is installed in the toolchain:
+mkdir -p verification
+lake env lean AxiomAudit.lean > verification/axiom-audit.log
+python3 scripts/check_audit.py verification/axiom-audit.log
+python3 scripts/test_audit_gate.py
 lake env leanchecker --verbose Emergent
 ```
 
-**Clean-room verification was independently executed on Wolfram host (MIN-186):**
-- Build: `lake build` -> 1973 jobs completed successfully (exit code 0).
-- Axiom Audit: `lake env lean AxiomAudit.lean` -> all 53 theorems checked; 16 constructive (no axioms), 37 using standard Lean foundations (`propext`, `Classical.choice`, `Quot.sound`).
-- Hygiene: 0 `sorry`, 0 `admit`, 0 custom axioms, 0 `unsafe`. Full receipts recorded in `evidence/`.
+GitHub [PR #8](https://github.com/pashamango/math/pull/8) runs this process on Ubuntu, rebuilds project modules after deleting local package outputs, and retains source digests, versions, checkout SHA and separate logs. Dependency binaries may be restored from mathlib's cache; this is not a full source rebuild of all dependencies. `leanchecker` uses Lean's kernel to replay project declarations against imported environments; it is not an independently implemented verifier. GitHub's PR checkout is a synthetic merge commit, recorded in the artifact.
 
-## Versions and provenance
+Prior run [40155461394](https://github.com/pashamango/math/actions/runs/40155461394) passed 1973 build jobs and all 53 audit entries (16 axiom-free; 37 using only `propext`, `Classical.choice`, `Quot.sound`). The extended checks added in this publication pass require a new successful run. Artifacts expire after 90 days; immutable Git-committed release evidence must retain the essential logs before a release.
 
-- `lean-toolchain`: `leanprover/lean4:v4.34.1`
-- `lakefile.lean`: mathlib revision `d13f23b723b8a846827a245b89c10fc7d3f11612`
-- `lake-manifest.json`: all nine dependencies pinned to specific Git revisions
-- Original research ZIP SHA-256: `818c727d916275b0fd9e94274ecf87fd1a93aee10d7d77b746dc021966917ada`
+## License and release status
 
-All seven imported Lean modules and build/audit entrypoints have exact matching Git blob hashes against the original source-only package.
+Original project contributions are **MIT**. The adapted modal module retains upstream attribution; a MIT-only grant has not been verified. [Rights review](docs/RIGHTS.md) records the remaining blocker with source digests. **Release candidate under review; no new MIT-only release is authorized by the evidence.**
 
-## Licensing and interpretation
-
-`Emergent/Modal.lean` contains an adaptation of work by **Christoph Benzmüller**, credited in the source header. See [source details](docs/SOURCES.md), root [NOTICE](../../NOTICE.md), and [release gates](../../docs/RELEASE_GATES.md). Upstream CC BY 4.0 rights and adaptation notices must be preserved; the root Apache-2.0 license cannot silently relicense the upstream work.
-
-Excluded intentionally from the initial GitHub import: the original automatic Actions workflow (unreviewed triggers), scripts that rewrite verification evidence, historical logs, compiled artifacts and LD_PRELOAD portability adapter. Verified CI, formal reviewer approval, per-file rights confirmation and security scanning remain blockers to any public release.
-
-Coordinating work: [Invariant Foundry MIN-19](https://linear.app/mindrock/issue/MIN-19/ontological-lean-core-provenance-and-clean-room-verification) and [MIN-20](https://linear.app/mindrock/issue/MIN-20/library-product-reusable-lean-package-and-api-proposal).
+The separate review is an independent AI review pass, not external human peer review. [Release checklist](docs/RELEASE_CHECKLIST.md) records open and completed gates. [Sources](docs/SOURCES.md) distinguish borrowed mathematics, historical testimony and current verification.

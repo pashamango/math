@@ -1,0 +1,14 @@
+{
+  "source_url": "https://arxiv.org/src/2609.26806v3",
+  "source_sha256": "27bbcd73582c190a0831c74de9710a6ab3a1e295d07050661c5e7cdf950c2a86",
+  "page_url": "https://arxiv.org/abs/2609.26806v3",
+  "page_license_href": "http://creativecommons.org/licenses/by/4.0/",
+  "page_sha256": "f016c7d2adcbec41b0b3b2ed07fb3f45792a09dbd9e457d544a93f6c899b5a6a",
+  "upstream_files_sha256": {
+    "anc/Notes/HOMLinHOL.lean": "f8f79241e1b3cd97193ac36cd6ba57c85cf98d9ba348bfb90b31cb78cfabb8a5",
+    "anc/Notes/ModalFilter.lean": "49182ca76f58a2d99a118c44cbe9f9e23b94ada21e65b2c7fcea68359b5f9546",
+    "anc/Notes/ScottVariantHOML.lean": "3cbf233021c1f7bbe1597b9928f78653671744710d3259e7e5e5b02d85046464",
+    "anc/README.md": "f40b5bdf3f91f081e4a447df1a3013714a00535bb9be9f9a19672b7ba7b800de"
+  },
+  "scope": "Page labels article CC BY 4.0; inspected ancillary files have no separate MIT grant. Adapted module cannot be declared wholly MIT on this evidence."
+}

@@ -1,3 +1,7 @@
+/-
+Copyright (c) 2026 Pavel Cherkashin.
+SPDX-License-Identifier: MIT
+-/
 import Emergent.Modal
 
 namespace Emergent
