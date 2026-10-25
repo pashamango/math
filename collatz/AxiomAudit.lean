@@ -1,4 +1,6 @@
 import Collatz.PhiWords
+import Collatz.ReverseTree
+import Collatz.CacheCheck
 
 #print axioms Collatz.PhiWords.fib_add_two
 #print axioms Collatz.PhiWords.no11_nil
@@ -64,3 +66,40 @@ import Collatz.PhiWords
 #print axioms Collatz.PhiWords.bergman_phi2
 #print axioms Collatz.PhiWords.bergman_phi3
 #print axioms Collatz.PhiWords.bergman_phi4
+#print axioms Collatz.ReverseTree.g0_pos
+#print axioms Collatz.ReverseTree.g1_pos
+#print axioms Collatz.ReverseTree.g1_odd
+#print axioms Collatz.ReverseTree.g1_mod6_ne_4
+#print axioms Collatz.ReverseTree.g1_consecutive_invalid
+#print axioms Collatz.ReverseTree.reachable_pos
+#print axioms Collatz.ReverseTree.evalPath_sound_general
+#print axioms Collatz.ReverseTree.evalPath_sound
+#print axioms Collatz.ReverseTree.pathToWord_nil
+#print axioms Collatz.ReverseTree.pathToWord_cons
+#print axioms Collatz.ReverseTree.pathToWord_injective
+#print axioms Collatz.ReverseTree.pathToWord_no11_of_hasNoConsecutiveS1
+#print axioms Collatz.ReverseTree.evalStep_s1_result_not_s1
+#print axioms Collatz.ReverseTree.validPath_hasNoConsecutiveS1
+#print axioms Collatz.ReverseTree.validPath_yields_no11
+#print axioms Collatz.ReverseTree.no11_not_all_realizable
+#print axioms Collatz.ReverseTree.conditional_reachable
+#print axioms Collatz.CacheCheck.rootNode_val
+#print axioms Collatz.CacheCheck.S_pos
+#print axioms Collatz.CacheCheck.S_root
+#print axioms Collatz.CacheCheck.tau_den
+#print axioms Collatz.CacheCheck.tau_le_refl
+#print axioms Collatz.CacheCheck.tau_le_trans
+#print axioms Collatz.CacheCheck.tau_root
+#print axioms Collatz.CacheCheck.tau_mono_of_S_descent
+#print axioms Collatz.CacheCheck.tau_strict_mono_of_S_descent
+#print axioms Collatz.CacheCheck.tau_le_root
+#print axioms Collatz.CacheCheck.tau_eq_root_iff
+#print axioms Collatz.CacheCheck.checkStep_eq_evalStep
+#print axioms Collatz.CacheCheck.verifyPath_eq_evalPath
+#print axioms Collatz.CacheCheck.verifyPath_sound
+#print axioms Collatz.CacheCheck.verifyPath_pos
+#print axioms Collatz.CacheCheck.verifyPath_step_bound
+#print axioms Collatz.CacheCheck.cache_guard_sound
+#print axioms Collatz.CacheCheck.cache_entry_pos
+#print axioms Collatz.CacheCheck.certifiedOfCacheEntry_val
+#print axioms Collatz.CacheCheck.checkCache_sound

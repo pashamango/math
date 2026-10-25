@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the bounded 64-theorem audit; a lexical gate, not a Lean parser."""
+"""Validate the bounded 101-theorem audit; a lexical gate, not a Lean parser."""
 from pathlib import Path
 from collections import Counter
 import re
@@ -20,8 +20,8 @@ def validate(root: Path, log: str):
         names = re.findall(r'^theorem\s+(\w+)', text, re.M)
         declared.extend('.'.join(namespaces + [name]) for name in names)
     expected = re.findall(r'^#print axioms (\S+)$', (root / 'AxiomAudit.lean').read_text(), re.M)
-    if len(declared) != 64 or len(set(declared)) != 64 or Counter(declared) != Counter(expected):
-        raise ValueError(f'Source declarations and audit inventory must match exactly (64 unique names), got {len(declared)} declared and {len(expected)} expected')
+    if len(declared) != 101 or len(set(declared)) != 101 or Counter(declared) != Counter(expected):
+        raise ValueError(f'Source declarations and audit inventory must match exactly (101 unique names), got {len(declared)} declared and {len(expected)} expected')
     rows = re.findall(r"'([^']+)' (depends on axioms: \[[^\]]*\]|does not depend on any axioms)", log)
     if Counter(name for name, _ in rows) != Counter(expected):
         raise ValueError('Missing, duplicate or unexpected audit output')

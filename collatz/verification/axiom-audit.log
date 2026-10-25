@@ -62,3 +62,40 @@
 'Collatz.PhiWords.bergman_phi2' does not depend on any axioms
 'Collatz.PhiWords.bergman_phi3' does not depend on any axioms
 'Collatz.PhiWords.bergman_phi4' does not depend on any axioms
+'Collatz.ReverseTree.g0_pos' depends on axioms: [propext, Quot.sound]
+'Collatz.ReverseTree.g1_pos' depends on axioms: [propext, Quot.sound]
+'Collatz.ReverseTree.g1_odd' depends on axioms: [propext, Quot.sound]
+'Collatz.ReverseTree.g1_mod6_ne_4' depends on axioms: [propext, Quot.sound]
+'Collatz.ReverseTree.g1_consecutive_invalid' depends on axioms: [propext, Quot.sound]
+'Collatz.ReverseTree.reachable_pos' depends on axioms: [propext, Quot.sound]
+'Collatz.ReverseTree.evalPath_sound_general' does not depend on any axioms
+'Collatz.ReverseTree.evalPath_sound' does not depend on any axioms
+'Collatz.ReverseTree.pathToWord_nil' does not depend on any axioms
+'Collatz.ReverseTree.pathToWord_cons' does not depend on any axioms
+'Collatz.ReverseTree.pathToWord_injective' does not depend on any axioms
+'Collatz.ReverseTree.pathToWord_no11_of_hasNoConsecutiveS1' depends on axioms: [propext]
+'Collatz.ReverseTree.evalStep_s1_result_not_s1' depends on axioms: [propext, Quot.sound]
+'Collatz.ReverseTree.validPath_hasNoConsecutiveS1' depends on axioms: [propext, Quot.sound]
+'Collatz.ReverseTree.validPath_yields_no11' depends on axioms: [propext, Quot.sound]
+'Collatz.ReverseTree.no11_not_all_realizable' does not depend on any axioms
+'Collatz.ReverseTree.conditional_reachable' does not depend on any axioms
+'Collatz.CacheCheck.rootNode_val' does not depend on any axioms
+'Collatz.CacheCheck.S_pos' does not depend on any axioms
+'Collatz.CacheCheck.S_root' does not depend on any axioms
+'Collatz.CacheCheck.tau_den' does not depend on any axioms
+'Collatz.CacheCheck.tau_le_refl' does not depend on any axioms
+'Collatz.CacheCheck.tau_le_trans' does not depend on any axioms
+'Collatz.CacheCheck.tau_root' does not depend on any axioms
+'Collatz.CacheCheck.tau_mono_of_S_descent' does not depend on any axioms
+'Collatz.CacheCheck.tau_strict_mono_of_S_descent' does not depend on any axioms
+'Collatz.CacheCheck.tau_le_root' does not depend on any axioms
+'Collatz.CacheCheck.tau_eq_root_iff' does not depend on any axioms
+'Collatz.CacheCheck.checkStep_eq_evalStep' does not depend on any axioms
+'Collatz.CacheCheck.verifyPath_eq_evalPath' does not depend on any axioms
+'Collatz.CacheCheck.verifyPath_sound' does not depend on any axioms
+'Collatz.CacheCheck.verifyPath_pos' depends on axioms: [propext, Quot.sound]
+'Collatz.CacheCheck.verifyPath_step_bound' does not depend on any axioms
+'Collatz.CacheCheck.cache_guard_sound' depends on axioms: [propext, Quot.sound]
+'Collatz.CacheCheck.cache_entry_pos' depends on axioms: [propext, Quot.sound]
+'Collatz.CacheCheck.certifiedOfCacheEntry_val' depends on axioms: [propext, Quot.sound]
+'Collatz.CacheCheck.checkCache_sound' depends on axioms: [propext, Quot.sound]

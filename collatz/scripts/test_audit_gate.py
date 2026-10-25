@@ -7,7 +7,7 @@ from check_audit import validate
 
 root = Path(__file__).resolve().parents[1]
 log = (root / 'verification/axiom-audit.log').read_text()
-assert validate(root, log)['theorems'] == 64
+assert validate(root, log)['theorems'] == 101
 
 def rejected(candidate, report):
     try:

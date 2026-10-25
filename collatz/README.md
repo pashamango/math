@@ -1,4 +1,4 @@
-# Collatz Formalization — Module M0 & M1 (PhiWords)
+# Collatz Formalization — Modules M1, M2, M3
 
 **Status:** Verified Lean 4 Formalization  
 **Release:** `v0.1.0`  
@@ -12,25 +12,42 @@
 > [!IMPORTANT]
 > **This project is NOT a proof of the Collatz conjecture (the $3x+1$ problem).**
 >
-> Module M1 (`Collatz.PhiWords`) formalizes the **static algebraic encoding of binary words in base $\phi$ and Fibonacci/Zeckendorf representations**. It establishes structural properties of words without consecutive ones (`no11`), the termination of canonical rewriting ($011 \to 100$), and representation invariants.
->
-> **What IS proved in M1:**
-> 1. Formal definition and decidability of binary words avoiding the substring $11$ (`no11`).
-> 2. Termination of canonical reduction $011 \to 100$ via the strict Lyapunov measure $\text{countOnes}(w)$.
-> 3. Normal form characterization: a word is irreducible under reduction if and only if it satisfies `no11`.
-> 4. Exact invariance of Fibonacci valuation ($\text{evalFib}$) and algebraic golden-ratio ring valuation ($\text{evalPhi}$ in $\mathbb{Z}[\phi]$) under reduction steps.
-> 5. Zeckendorf representation coverage for integers and Bergman representation coverage in $\mathbb{Z}[\phi]$.
->
-> **What is NOT proved:**
-> 1. No claims whatsoever are made regarding the global convergence of Collatz trajectories.
-> 2. No claims of cycle prevention or absence of divergent trajectories under the map $T(n)$.
-> 3. The golden ratio $\phi$ in M1 is strictly a positional base for encoding non-adjacent binary sequences; heuristic dynamical claims (such as contraction hypotheses or $3/4$ drift) belong to separate dynamical modules and are **not** asserted as theorems in M1.
+> 1. **No Global Convergence Claim:** The global reachability of all positive integers from 1 (`CollatzConjecture : Prop := ∀ n > 0, ReachableFromOne n`) is formalized strictly as an **unproven conditional hypothesis variable**. No theorem in this repository claims to prove this hypothesis.
+> 2. **τ is NOT a Divergence Detector:** The reciprocal coordinate $\tau = 1/S$ is defined **strictly and exclusively on certified, provably reachable nodes** (`CertifiedNode`). It does not detect divergence or non-divergence of unverified trajectories.
+> 3. **Linear Path Checker is NOT a Result about P vs NP:** The $O(|w|)$ certificate verifier (`verifyPath`) is an elementary linear-time verification of an explicit certificate witness path, which is standard in algorithmics and bears no relation to the P vs NP problem.
+> 4. **No Mixing of Rewriting with Cycles:** Canonical word rewriting ($011 \to 100$) in $\phi$-words (`Collatz.PhiWords`) formalizes base-$\phi$ positional normal forms and is **strictly separated** from Collatz orbital dynamics or cycles.
+
+---
+
+## Module Overview
+
+The formalization is structured into three self-contained Lean 4 modules:
+
+### 1. Module M1: `Collatz.PhiWords` (64 Theorems)
+- Canonical binary words avoiding adjacent ones (`no11`).
+- Termination of canonical reduction $011 \to 100$ via the strict Lyapunov measure $\text{countOnes}$.
+- Normal form characterization: a word is irreducible under reduction if and only if it satisfies `no11`.
+- Exact invariance of Fibonacci valuation ($\text{evalFib}$) and ring valuation in $\mathbb{Z}[\phi]$ ($\text{evalPhi}$).
+- Zeckendorf and Bergman representation coverage properties.
+
+### 2. Module M2: `Collatz.ReverseTree` (17 Theorems)
+- Reverse Collatz operators $G_0(n) = 2n$ and $G_1(n) = (n - 1) / 3$ under explicit mod-6 condition ($n \equiv 4 \pmod 6$).
+- Inductive reachability predicate `ReachableFromOne`.
+- Structural path theorem: every valid reverse tree path avoids consecutive $G_1$ transitions, strictly yielding words without adjacent ones (`no11`).
+- Injection of valid reverse paths into $\phi$-words.
+- Characterization of realizability: proof that reverse paths form a **strict subset** of `no11` words (counterexample `[true]` is valid `no11` but unreachable from 1 due to $1 \not\equiv 4 \pmod 6$).
+- Conditional hypothesis `CollatzConjecture`.
+
+### 3. Module M3: `Collatz.CacheCheck` (20 Theorems)
+- Rigorous definition of scale $S$ and reciprocal coordinate $\tau = 1/S$ **strictly on provably reachable nodes** (`CertifiedNode`).
+- Monotonicity of $\tau$ as a direct lemma of $S$: decreasing $S$ corresponds strictly to increasing $\tau$, with $\tau = 1$ achieved at the root attractor 1.
+- Deterministic linear path checker (`verifyPath`) verifying reverse path certificates in $O(|w|)$ time.
+- Soundness theorem: any node accepted by `verifyPath` is provably reachable (`ReachableFromOne`).
+- Cache consistency guard (`checkCache` / `isCacheEntryValid`): admits nodes into the certified cache only upon verification of linear path certificates.
 
 ---
 
 ## Architecture & Layout
-
-This project mirrors the clean, hermetic layout of `ontology/emergent-attractor/` in `pashamango/math`:
 
 ```
 collatz/
@@ -38,11 +55,13 @@ collatz/
 ├── lakefile.lean                 # Dedicated Lake build specification (zero external dependencies)
 ├── Collatz.lean                  # Library root import
 ├── Collatz/
-│   └── PhiWords.lean             # M1: Canonical words, reduction, Zeckendorf & Bergman theory
-├── AxiomAudit.lean               # Exhaustive #print axioms audit for all 64 theorems
-├── README.md                     # Epistemic boundary, claims, and build instructions
+│   ├── PhiWords.lean             # M1: Canonical words, reduction, Zeckendorf & Bergman theory
+│   ├── ReverseTree.lean          # M2: Reverse operators, reachability, no11 lemma, realizability
+│   └── CacheCheck.lean           # M3: S, tau on certified nodes, monotonicity, linear path checker
+├── AxiomAudit.lean               # Exhaustive #print axioms audit across all 101 theorems
+├── README.md                     # Epistemic boundary, module architecture, and reproduction
 ├── docs/
-│   └── CLAIMS.md                 # Theorem Map and formal claim inventory
+│   └── CLAIMS.md                 # Complete Theorem Map and formal claim inventory
 ├── scripts/
 │   ├── check_audit.py            # Automated audit gate & axiom verification
 │   └── test_audit_gate.py        # Fault injection test suite verifying audit gate integrity
@@ -54,27 +73,32 @@ collatz/
 
 ## Verification & Clean-Room Replay
 
-The project requires only standard `elan` / Lean 4. It does not require downloading external libraries (such as `mathlib`), guaranteeing instant builds without network dependency:
+The project requires only standard Lean 4 / Lake. It has zero external dependencies:
 
 ```bash
-# 1. Build from scratch
+# 1. Clean build
 cd collatz
 lake build
 
-# 2. Verify axiom audit across all 64 theorems
-lake env lean AxiomAudit.lean > verification/axiom-audit.log
+# 2. Run automated axiom audit gate
 python3 scripts/check_audit.py
 
-# 3. Run fault-injection verification of the audit gate
+# 3. Run fault-injection test suite
 python3 scripts/test_audit_gate.py
 ```
 
-### Audit Gate Output
+### Audit Gate Results
 ```
-{'theorems': 64, 'without_axioms': 49, 'with_foundations': 15}
+{'theorems': 101, 'without_axioms': 71, 'with_foundations': 30}
+PASS: rejected placeholder
+PASS: rejected custom axiom
+PASS: rejected unsafe
+PASS: rejected unlisted theorem
+PASS: rejected missing/duplicate rows, foreign axiom and sorryAx; clean baseline accepted
 ```
-- **Total Theorems Declared & Audited:** 64
+
+- **Total Audited Theorems:** 101
 - **Sorry / Admit Count:** 0
 - **Custom / Unsafe Axioms:** 0
-- **Purely Constructive (Zero Axioms):** 49
-- **Standard Foundations Only (`propext`, `Quot.sound`, `Classical.choice`):** 15
+- **Constructive (Zero Axioms):** 71
+- **Standard Core Foundations Only (`propext`, `Quot.sound`):** 30
