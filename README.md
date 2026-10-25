@@ -8,7 +8,7 @@ A collection of reproducible formal mathematics, proof experiments, countermodel
 
 | Area | Package | Scope | Release gate |
 | --- | --- | --- | --- |
-| [Ontology](ontology/) | [Emergent Attractor](ontology/emergent-attractor/) | Modal logic, recursive positivity, fixed points, finite-rank reachability and countermodels | Build, audit, fault injection and kernel replay passed; v0.1.0 released; verification passed |
+| [Ontology](ontology/) | [Emergent Attractor](ontology/emergent-attractor/) | Modal logic, recursive positivity, fixed points, finite-rank reachability and countermodels | v0.1.0 released after build, axiom audit, fault injection and kernel replay passed |
 | [Verification](docs/SSO.md) | [SSO](src/pashamango/math/sso/) | Scientific Objects on a Hash Sphere: canonical JSON framing, SHA-256 rarity, affine cycles | Python unittest suite passing; golden vectors pinned |
 
 Read the [author's interpretive essay](ontology/emergent-attractor/docs/ESSAY.md) alongside the formal claims and verification record.
