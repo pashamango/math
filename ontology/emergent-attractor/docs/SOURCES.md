@@ -12,4 +12,4 @@ mathlib4 is pinned to `d13f23b723b8a846827a245b89c10fc7d3f11612`. Existing mathl
 
 ## Verification
 
-Prior Actions runs verified earlier candidates, not the current source. A new CI run and artifact inspection are required for the current PR head.
+Current candidate verification: PR head `53e275114990631e7309a988483f5444fc3d3c9d` passed [Actions run 40165513435](https://github.com/pashamango/math/actions/runs/40165513435). The [verification artifact](https://github.com/pashamango/math/actions/runs/40165513435/artifacts/12588072185) was read back and its SHA-256 (`6c378d8223e1b73e2349a8da691ea0c339376626fffefc914a5c488dfee318f3`) and embedded source hashes were verified.
