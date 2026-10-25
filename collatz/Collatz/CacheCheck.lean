@@ -99,7 +99,7 @@ theorem checkStep_eq_evalStep (curr : Nat) (s : Step) :
 
 /-- Linear path checker:
     Verifies a sequence of reverse tree steps starting from a given node.
-    Runs in exactly O(|w|) operations where |w| is the length of path w. -/
+    Runs in at most O(|w|) operations (upper bounded by path length |w|). -/
 def verifyPath (start : Nat) : Path → Option Nat
   | [] => some start
   | s :: rest =>
@@ -129,12 +129,44 @@ theorem verifyPath_pos (p : Path) {n : Nat} (h : verifyPath 1 p = some n) :
     n > 0 :=
   reachable_pos (verifyPath_sound p h)
 
-/-- The step count complexity of verifyPath is strictly proportional to path length.
-    NOTE: Linear certificate verification is an elementary property of explicit witnesses
+/-- Recursive transition cost of verifyPath in the structural unit-cost model,
+    explicitly repeating the recursive branching and early termination of verifyPath.
+    Each transition verification step costs 1 operation.
+    In the event of an invalid transition (checkStep = none), the checker aborts
+    immediately, incurring 1 step for that failing transition.
+    NOTE: This establishes a structural upper bound on the number of path transitions
+    examined; it makes no claims regarding the bit complexity of arbitrary-precision arithmetic.
+    Linear certificate verification is an elementary property of explicit witnesses
     and implies nothing regarding P vs NP. -/
-def stepsCount (p : Path) : Nat := p.length
+def verifyPathCost (start : Nat) : Path → Nat
+  | [] => 0
+  | s :: rest =>
+    match checkStep start s with
+    | some next => 1 + verifyPathCost next rest
+    | none => 1
 
-theorem verifyPath_step_bound (p : Path) : stepsCount p = p.length := rfl
+/-- Structural step upper bound:
+    In the unit-cost transition model, the cost of verifyPath is bounded above by
+    path length: verifyPathCost start p ≤ p.length (cost ≤ 1 * |p| + 0).
+    Due to early termination on invalid transitions, the cost can be strictly less than p.length. -/
+theorem verifyPath_step_bound (start : Nat) (p : Path) :
+    verifyPathCost start p ≤ p.length := by
+  induction p generalizing start with
+  | nil =>
+    dsimp [verifyPathCost]
+    exact Nat.le_refl 0
+  | cons s rest ih =>
+    dsimp [verifyPathCost]
+    cases h : checkStep start s with
+    | none =>
+      dsimp
+      exact Nat.succ_le_succ (Nat.zero_le rest.length)
+    | some next =>
+      dsimp
+      have ih_next := ih next
+      have h1 : 1 + verifyPathCost next rest = (verifyPathCost next rest).succ := Nat.add_comm 1 (verifyPathCost next rest)
+      rw [h1]
+      exact Nat.succ_le_succ ih_next
 
 /-- Cache entry associating a natural number with a claimed reachability path witness. -/
 structure CacheEntry where

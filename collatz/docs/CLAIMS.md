@@ -124,7 +124,7 @@ All declarations have been audited via `AxiomAudit.lean` with zero `sorry`, zero
 | `tau_le_refl` | `theorem tau_le_refl (t : Tau) : tau_le t t` | Reflexivity of $\tau$ ordering | `[]` |
 | `tau_le_trans` | `theorem tau_le_trans {t1 t2 t3 : Tau} (h12 : tau_le t1 t2) (h23 : tau_le t2 t3) : tau_le t1 t3` | Transitivity of $\tau$ ordering | `[]` |
 | `tau_root` | `theorem tau_root : tau rootNode = ⟨1, Nat.zero_lt_one, ReachableFromOne.one⟩` | Value of $\tau$ at terminal root is $1/1 = 1$ | `[]` |
-| `tau_mono_of_S_descent` | `theorem tau_mono_of_S_descent (u v : CertifiedNode) (h : S v ≤ S u) : tau_le (tau u) (tau v)` | **Monotonicity Lemma:** decreasing scale $S$ strictly increases $\tau$ | `[]` |
+| `tau_mono_of_S_descent` | `theorem tau_mono_of_S_descent (u v : CertifiedNode) (h : S v ≤ S u) : tau_le (tau u) (tau v)` | **Monotonicity Lemma:** decreasing scale $S$ monotonically increases $\tau$ ($\tau(u) \le \tau(v)$) | `[]` |
 | `tau_strict_mono_of_S_descent` | `theorem tau_strict_mono_of_S_descent (u v : CertifiedNode) (h : S v < S u) : tau_lt (tau u) (tau v)` | Strict monotonicity of $\tau$ as a lemma of $S$ | `[]` |
 | `tau_le_root` | `theorem tau_le_root (node : CertifiedNode) : tau_le (tau node) (tau rootNode)` | $\tau \le 1$ for all certified reachable nodes | `[]` |
 | `tau_eq_root_iff` | `theorem tau_eq_root_iff (node : CertifiedNode) : tau node = tau rootNode ↔ node.val = 1` | Terminal attractor characterization: $\tau = 1 \iff n = 1$ | `[]` |
@@ -132,7 +132,7 @@ All declarations have been audited via `AxiomAudit.lean` with zero `sorry`, zero
 | `verifyPath_eq_evalPath` | `theorem verifyPath_eq_evalPath (start : Nat) (p : Path) : verifyPath start p = evalPath start p` | Equivalence of linear checker and path evaluation | `[]` |
 | `verifyPath_sound` | `theorem verifyPath_sound (p : Path) {n : Nat} (h : verifyPath 1 p = some n) : ReachableFromOne n` | **Soundness:** linear verifier accepts only provably reachable nodes | `[]` |
 | `verifyPath_pos` | `theorem verifyPath_pos (p : Path) {n : Nat} (h : verifyPath 1 p = some n) : n > 0` | Verified nodes are strictly positive | `[propext, Quot.sound]` |
-| `verifyPath_step_bound` | `theorem verifyPath_step_bound (p : Path) : stepsCount p = p.length` | **Linear Complexity:** verifier runs in exactly $O(\|w\|)$ steps | `[]` |
+| `verifyPath_step_bound` | `theorem verifyPath_step_bound (start : Nat) (p : Path) : verifyPathCost start p ≤ p.length` | **Linear Complexity:** verifier execution cost is upper bounded by path length ($O(\|w\|)$ transitions in unit-cost model) | `[]` |
 | `cache_guard_sound` | `theorem cache_guard_sound (entry : CacheEntry) (h : isCacheEntryValid entry = true) : ReachableFromOne entry.val` | Cache guard soundness: only verified reachable nodes are admitted | `[propext, Quot.sound]` |
 | `cache_entry_pos` | `theorem cache_entry_pos (entry : CacheEntry) (h : isCacheEntryValid entry = true) : entry.val > 0` | Admitted cache entries are strictly positive | `[propext, Quot.sound]` |
 | `certifiedOfCacheEntry_val` | `theorem certifiedOfCacheEntry_val (entry : CacheEntry) (h : isCacheEntryValid entry = true) : (certifiedOfCacheEntry entry h).val = entry.val` | Value preservation of admitted certified nodes | `[propext, Quot.sound]` |

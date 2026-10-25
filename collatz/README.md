@@ -40,8 +40,8 @@ The formalization is structured into three self-contained Lean 4 modules:
 
 ### 3. Module M3: `Collatz.CacheCheck` (20 Theorems)
 - Rigorous definition of scale $S$ and reciprocal coordinate $\tau = 1/S$ **strictly on provably reachable nodes** (`CertifiedNode`).
-- Monotonicity of $\tau$ as a direct lemma of $S$: decreasing $S$ corresponds strictly to increasing $\tau$, with $\tau = 1$ achieved at the root attractor 1.
-- Deterministic linear path checker (`verifyPath`) verifying reverse path certificates in $O(|w|)$ time.
+- Monotonicity of $\tau$ as a direct lemma of $S$: decreasing scale $S$ corresponds monotonically to non-decreasing $\tau$ (and strictly increasing for $S(v) < S(u)$), with $\tau = 1$ achieved at the root attractor 1.
+- Deterministic path checker (`verifyPath`) verifying reverse path certificates with transition cost upper bounded by $O(|w|)$ steps in the unit-cost model.
 - Soundness theorem: any node accepted by `verifyPath` is provably reachable (`ReachableFromOne`).
 - Cache consistency guard (`checkCache` / `isCacheEntryValid`): admits nodes into the certified cache only upon verification of linear path certificates.
 
