@@ -13,3 +13,5 @@ mathlib4 is pinned to `d13f23b723b8a846827a245b89c10fc7d3f11612`. The least/grea
 ## Evidence
 
 GitHub Actions run [40155461394](https://github.com/pashamango/math/actions/runs/40155461394) verified the prior PR head `f0062f17c35f42ec6a8f2b77a32fdd3e1bc1bf85`: build and all 53 audit entries passed. Publication changes need their own CI run. Historical local receipts are not substitutes for current CI. The original research ZIP digest reported by earlier imports is `818c727d916275b0fd9e94274ecf87fd1a93aee10d7d77b746dc021966917ada`; that separate archive was not independently downloaded in this pass.
+
+Extended GitHub run [40156341102](https://github.com/pashamango/math/actions/runs/40156341102) passed fresh local-module build, all 53 audits, audit-gate fault injection and kernel replay for candidate `16c5e3e3c669bbc3977bd8e4e38950d0337c15b9`. Artifact digest `38c27e3382ecb8a9c40bb371694ad5e26085c53f1272cb7749b36045c2d1b1aa` was checked after download. Essential logs are retained in `evidence/publication/40156341102` at repository root. Later documentation-only receipt changes do not alter the verified mathematical sources.

@@ -1,0 +1,10 @@
+{
+  "run_id": 40156341102,
+  "artifact_id": 12585080428,
+  "artifact_zip_sha256": "38c27e3382ecb8a9c40bb371694ad5e26085c53f1272cb7749b36045c2d1b1aa",
+  "pr_head": "16c5e3e3c669bbc3977bd8e4e38950d0337c15b9",
+  "tested_checkout": "9b2d9aa8cbb868da46fc0b56caab34617a874256",
+  "artifact_contents_verified": true,
+  "dependency_cache_log_omitted_from_git": true,
+  "release_status": "BLOCKED_MIT_ONLY_RIGHTS"
+}

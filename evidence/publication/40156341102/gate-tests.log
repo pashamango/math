@@ -1,0 +1,5 @@
+PASS: rejected placeholder
+PASS: rejected custom axiom
+PASS: rejected unsafe
+PASS: rejected unlisted theorem
+PASS: rejected missing/duplicate rows, foreign axiom and sorryAx; clean baseline accepted

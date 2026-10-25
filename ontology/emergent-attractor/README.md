@@ -27,7 +27,7 @@ lake env leanchecker --verbose Emergent
 
 GitHub [PR #8](https://github.com/pashamango/math/pull/8) runs this process on Ubuntu, rebuilds project modules after deleting local package outputs, and retains source digests, versions, checkout SHA and separate logs. Dependency binaries may be restored from mathlib's cache; this is not a full source rebuild of all dependencies. `leanchecker` uses Lean's kernel to replay project declarations against imported environments; it is not an independently implemented verifier. GitHub's PR checkout is a synthetic merge commit, recorded in the artifact.
 
-Prior run [40155461394](https://github.com/pashamango/math/actions/runs/40155461394) passed 1973 build jobs and all 53 audit entries (16 axiom-free; 37 using only `propext`, `Classical.choice`, `Quot.sound`). The extended checks added in this publication pass require a new successful run. Artifacts expire after 90 days; immutable Git-committed release evidence must retain the essential logs before a release.
+Prior run [40155461394](https://github.com/pashamango/math/actions/runs/40155461394) passed 1973 build jobs and all 53 audit entries (16 axiom-free; 37 using only `propext`, `Classical.choice`, `Quot.sound`). Extended run [40156341102](https://github.com/pashamango/math/actions/runs/40156341102) passed fresh package build, all 53 audits, eight audit-gate corruption cases and kernel replay of all eight project modules. Essential logs and the inspected artifact receipt are archived in [Git evidence](../../evidence/publication/40156341102/). Artifacts expire after 90 days; essential logs for the extended run have been retained in Git.
 
 ## License and release status
 

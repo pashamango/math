@@ -45,3 +45,7 @@ Reviewer: a separate Codex AI review pass, independent of the editing pass in th
 ## Release disposition
 
 For a bounded formal-library release, document the above qualifications in the claims map and README, keep the essay clearly labeled as the author's proposed interpretation, and state that both metaphysical identification and physical applicability are open. No change to the seven proof modules is required solely to make that narrower release honest. If the release instead claims to have proved the essay's two new metaphysical assumptions or their universal consequences, the missing event-goodness semantics, temporal theory, identification of the target, non-circular target selection, and joint model are blocking research work. Neither an AI reviewer nor a successful CI run can supply those premises on the author's behalf.
+
+## Reviewer follow-up on publication candidate
+
+The same separate AI reviewer re-read the prepared README, claim map, model analysis and essay scope note for source candidate `16c5e3e3c669bbc3977bd8e4e38950d0337c15b9`. It reported that the substantive qualifications above were adequately addressed, with no remaining factual mathematical errors found in that documentation. It also verified that the six modified source files differ only by copyright/SPDX comment headers, with `Modal.lean` unchanged. Licensing remains outside that review verdict.
