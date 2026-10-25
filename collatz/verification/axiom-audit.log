@@ -1,0 +1,64 @@
+'Collatz.PhiWords.fib_add_two' does not depend on any axioms
+'Collatz.PhiWords.no11_nil' does not depend on any axioms
+'Collatz.PhiWords.no11_one' does not depend on any axioms
+'Collatz.PhiWords.no11_two' does not depend on any axioms
+'Collatz.PhiWords.no11_three' does not depend on any axioms
+'Collatz.PhiWords.no11_four' does not depend on any axioms
+'Collatz.PhiWords.no11_five' does not depend on any axioms
+'Collatz.PhiWords.no11_six' does not depend on any axioms
+'Collatz.PhiWords.no11_seven' does not depend on any axioms
+'Collatz.PhiWords.no11_eight' does not depend on any axioms
+'Collatz.PhiWords.no11_false_cons' does not depend on any axioms
+'Collatz.PhiWords.no11_true_false_cons' does not depend on any axioms
+'Collatz.PhiWords.no11_of_cons' does not depend on any axioms
+'Collatz.PhiWords.not_no11_true_true' does not depend on any axioms
+'Collatz.PhiWords.not_no11_false_true_true' does not depend on any axioms
+'Collatz.PhiWords.countOnes_append' depends on axioms: [propext, Quot.sound]
+'Collatz.PhiWords.step011_countOnes' depends on axioms: [propext, Quot.sound]
+'Collatz.PhiWords.step011_countOnes_lt' depends on axioms: [propext, Quot.sound]
+'Collatz.PhiWords.step011_length' depends on axioms: [propext]
+'Collatz.PhiWords.evalLSBAt_append' depends on axioms: [propext, Quot.sound]
+'Collatz.PhiWords.evalLSBAt_011_eq_100' depends on axioms: [propext, Quot.sound]
+'Collatz.PhiWords.evalFib_nil' does not depend on any axioms
+'Collatz.PhiWords.evalFib_one' does not depend on any axioms
+'Collatz.PhiWords.evalFib_two' does not depend on any axioms
+'Collatz.PhiWords.evalFib_three' does not depend on any axioms
+'Collatz.PhiWords.evalFib_four' does not depend on any axioms
+'Collatz.PhiWords.evalFib_five' does not depend on any axioms
+'Collatz.PhiWords.evalFib_six' does not depend on any axioms
+'Collatz.PhiWords.evalFib_seven' does not depend on any axioms
+'Collatz.PhiWords.evalFib_eight' does not depend on any axioms
+'Collatz.PhiWords.evalFib_reduction_equiv' does not depend on any axioms
+'Collatz.PhiWords.step011_evalFib' depends on axioms: [propext, Quot.sound]
+'Collatz.PhiWords.phiPower_add_two' does not depend on any axioms
+'Collatz.PhiWords.addPhi_zero' depends on axioms: [propext]
+'Collatz.PhiWords.addPhi_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Collatz.PhiWords.addPhi_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Collatz.PhiWords.evalPhiLSBAt_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Collatz.PhiWords.evalPhiLSBAt_011_eq_100' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Collatz.PhiWords.evalPhi_nil' does not depend on any axioms
+'Collatz.PhiWords.evalPhi_phi0' does not depend on any axioms
+'Collatz.PhiWords.evalPhi_phi1' does not depend on any axioms
+'Collatz.PhiWords.evalPhi_phi2' does not depend on any axioms
+'Collatz.PhiWords.evalPhi_phi3' does not depend on any axioms
+'Collatz.PhiWords.evalPhi_phi4' does not depend on any axioms
+'Collatz.PhiWords.evalPhi_reduction_equiv' does not depend on any axioms
+'Collatz.PhiWords.step011_evalPhi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Collatz.PhiWords.step_not_no11' does not depend on any axioms
+'Collatz.PhiWords.no11_irreducible' does not depend on any axioms
+'Collatz.PhiWords.step_of_not_no11' depends on axioms: [propext]
+'Collatz.PhiWords.irreducible_iff_no11' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Collatz.PhiWords.zeckendorf_zero' does not depend on any axioms
+'Collatz.PhiWords.zeckendorf_one' does not depend on any axioms
+'Collatz.PhiWords.zeckendorf_two' does not depend on any axioms
+'Collatz.PhiWords.zeckendorf_three' does not depend on any axioms
+'Collatz.PhiWords.zeckendorf_four' does not depend on any axioms
+'Collatz.PhiWords.zeckendorf_five' does not depend on any axioms
+'Collatz.PhiWords.zeckendorf_six' does not depend on any axioms
+'Collatz.PhiWords.zeckendorf_seven' does not depend on any axioms
+'Collatz.PhiWords.zeckendorf_eight' does not depend on any axioms
+'Collatz.PhiWords.bergman_phi0' does not depend on any axioms
+'Collatz.PhiWords.bergman_phi1' does not depend on any axioms
+'Collatz.PhiWords.bergman_phi2' does not depend on any axioms
+'Collatz.PhiWords.bergman_phi3' does not depend on any axioms
+'Collatz.PhiWords.bergman_phi4' does not depend on any axioms
