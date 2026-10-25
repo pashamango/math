@@ -1,0 +1,66 @@
+name: Emergent Attractor Lean verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ontology/emergent-attractor/**'
+      - '.github/workflows/emergent-attractor.yml'
+  pull_request:
+    paths:
+      - 'ontology/emergent-attractor/**'
+      - '.github/workflows/emergent-attractor.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: emergent-attractor-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lean-build-and-audit:
+    name: Lean build and axiom audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: ontology/emergent-attractor
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pinned Lean toolchain
+        uses: leanprover/lean4-action@v1
+        with:
+          lean V: 4.34.1
+
+      - name: Verify pinned toolchain
+        run: |
+          test "$(lean --version | sed -n 's/^Lean (version \([^,]*\).*/\1/p')" = "4.34.1"
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.34.1"
+
+      - name: Build all declared targets
+        run: lake build
+
+      - name: Audit theorem axioms
+        run: |
+          lake env lean AxiomAudit.lean 2>&1 | tee axiom-audit.log
+          ! grep -E '(^|[^[:alnum:]_])(sorryAx|admit|Emergent\.[A-Za-z0-9_.]+)' axiom-audit.log
+
+      - name: Reject placeholders and unsafe declarations
+        run: |
+          if rg -n '\b(sorry|admit|unsafe)\b' --glob '*.lean' .; then
+            echo "Forbidden placeholder or unsafe declaration found"
+            exit 1
+          fi
+
+      - name: Preserve verification receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: emergent-attractor-verification-${{ github.sha }}
+          path: ontology/emergent-attractor/axiom-audit.log
+          if-no-files-found: warn
+          retention-days: 90
