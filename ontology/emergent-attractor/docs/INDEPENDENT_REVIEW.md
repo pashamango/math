@@ -49,3 +49,9 @@ For a bounded formal-library release, document the above qualifications in the c
 ## Reviewer follow-up on publication candidate
 
 The same separate AI reviewer re-read the prepared README, claim map, model analysis and essay scope note for source candidate `16c5e3e3c669bbc3977bd8e4e38950d0337c15b9`. It reported that the substantive qualifications above were adequately addressed, with no remaining factual mathematical errors found in that documentation. It also verified that the six modified source files differ only by copyright/SPDX comment headers, with `Modal.lean` unchanged. Licensing remains outside that review verdict.
+
+## Clean-room implementation process record
+
+A source-aware specifier supplied a separate implementer only the formal definitions, Scott axiom structure and exact theorem statements. No prior proof bodies, explanatory source comments or repository checkout were provided. The implementer ran in a task with no inherited conversation history and attested that it did not access source files. The process and source/output hashes are in [PROVENANCE_DOSSIER.md](PROVENANCE_DOSSIER.md).
+
+The source-aware editor checked the returned proof terms against the API and corrected two equality-orientation errors before integration. The new GitHub Actions run on this commit must establish compilation, full axiom audit, fault-injection tests and kernel replay. This record is an AI process review, not external human peer review or a legal opinion.

@@ -1,7 +1,7 @@
 # Attribution and license scope
 
-Original Mindrock Math contributions are licensed under [MIT](LICENSE). Prior references allocating our code to a different license were documentation errors and have been removed.
+The original project contributions are licensed under [MIT](LICENSE). In this PR, the prior `Emergent/Modal.lean` proof implementation is replaced by a module produced from an API-only specification. The isolated implementer received the formal definitions, Scott axioms and exact theorem statements, but no existing proof bodies, source checkout or inherited conversation history. See the package [provenance dossier](ontology/emergent-attractor/docs/PROVENANCE_DOSSIER.md).
 
-`ontology/emergent-attractor/Emergent/Modal.lean` identifies an adaptation of Christoph Benzmüller's *Gödel's and Scott's Variants of the Ontological Argument in Lean 4 and TPTP THF*, arXiv:2609.26806v3. Attribution and modification notices remain applicable; a MIT-only grant for this adapted material has not been verified. See the package [rights review](ontology/emergent-attractor/docs/RIGHTS.md).
+The upstream article by Christoph Benzmüller, arXiv:2609.26806v3, is cited as mathematical background; its page identifies CC BY 4.0 and describes Lean sources as ancillary files. This implementation does not reuse those Lean proof bodies. The dossier records the source-aware specification step and the isolated implementation step. This is a process record, not a legal opinion.
 
-The root MIT license does not grant rights owned by third parties. External dependencies retain their own terms. The package is not affiliated with or endorsed by upstream researchers.
+The repository MIT license applies to project-authored code and documentation. External dependencies retain their own terms. The package is not affiliated with or endorsed by upstream researchers.

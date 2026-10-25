@@ -1,16 +1,16 @@
-# Rights review
+# Rights and provenance record
 
-Original project code and author documentation use MIT, per the author's instruction. The root LICENSE is MIT. Dependency licenses remain those of the dependency authors; they are not relicensed by this project.
+Project-authored source code and documentation, including the current `Emergent/Modal.lean`, are offered under [MIT](../../../LICENSE). External dependencies retain their own terms and are not relicensed here.
 
-| Files | Basis | Allocation / status |
-| --- | --- | --- |
-| `Emergent/{Dynamics,SelfReference,Models,Bridge,Enrichment,SeededExample}.lean`, entrypoints and project scripts | Original project contributions, subject to existing upstream mathematical references | MIT; reuse of mathlib theorems does not claim their invention |
-| README, claim map, model analysis and author essay | Project text, with cited upstream ideas | MIT |
-| `Emergent/Modal.lean` | Source header explicitly identifies adapted Benzmüller proof terms | Upstream attribution retained; no MIT-only grant verified; **MIT-only release blocker** |
-| Pinned mathlib and toolchain | External dependencies, not copied into release source | Their own terms apply |
+## Why the modal module was replaced
 
-Downloaded `https://arxiv.org/src/2609.26806v3`; the archive hash exactly matches the previously recorded source hash. Inspected `anc/Notes/HOMLinHOL.lean`, `anc/Notes/ModalFilter.lean`, `anc/Notes/ScottVariantHOML.lean` and `anc/README.md`. These files contain no separate MIT permission. The arXiv version page labels the article CC BY 4.0. That page is evidence of the posted license, not an invented MIT permission for the adaptation. Digests and retrieval URLs are in [UPSTREAM_PROVENANCE.json](UPSTREAM_PROVENANCE.json).
+The previous modal proof module identified Scott proof terms adapted from Christoph Benzmüller's arXiv:2609.26806v3. Its article page identifies CC BY 4.0 and says Lean sources accompany the article as ancillary files. The earlier PR #9 rewrite was not clean-room and is not the basis for the current MIT implementation.
 
-The adaptation changes generic world/entity parameters, actualist quantification, explicit hypothesis structures instead of global axioms, proof presentation and some elementary equality proofs. Attribution and modification history must remain. No endorsement is implied.
+## Process used for the current candidate
 
-To satisfy a strict MIT-only release, obtain an explicit MIT-compatible grant from the rights holder or supply a provenance-reviewed independent implementation. Replacing a license label or deleting attribution does not resolve the blocker. No such grant has been obtained in this session; nobody was contacted.
+- The specifier had seen the previous source and did not act as implementer.
+- The specifier passed only formal definitions, Scott axiom structure and exact theorem statements. No prior theorem proof bodies, source comments or repository checkout were included.
+- A separate AI implementer was started with no inherited conversation history and no source access; it returned the current module and attested it did not access source files.
+- The source/output hashes and limits of this record are in [PROVENANCE_DOSSIER.md](PROVENANCE_DOSSIER.md).
+
+The current candidate does not use upstream Lean proof bodies. This record documents the implementation process, not a legal opinion. The project owner accepts responsibility for proceeding on this basis.
