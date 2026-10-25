@@ -1,18 +1,16 @@
-# Rights review
+# Rights and provenance record
 
-Original project code and author documentation use MIT, per the author's instruction. The root LICENSE is MIT. Dependency licenses remain those of the dependency authors; they are not relicensed by this project.
+Project-authored source code and documentation, including the current `Emergent/Modal.lean`, are offered under [MIT](../../../LICENSE). External dependencies retain their own terms and are not relicensed here.
 
-| Files | Basis | Allocation / status |
-| --- | --- | --- |
-| `Emergent/{Dynamics,SelfReference,Models,Bridge,Enrichment,SeededExample,Modal}.lean`, entrypoints and project scripts | Original project contributions and independent clean-room modal implementation, subject to existing upstream mathematical references | MIT; reuse of mathlib theorems does not claim their invention |
-| README, claim map, model analysis and author essay | Project text, with cited upstream ideas | MIT |
-| Pinned mathlib and toolchain | External dependencies, not copied into release source | Their own terms apply |
+## Why the modal module was replaced
 
-## Resolution of the modal logic rights question
+The previous modal proof module identified Scott proof terms adapted from Christoph Benzmüller's arXiv:2609.26806v3. Its article page identifies CC BY 4.0 and says Lean sources accompany the article as ancillary files. The earlier PR #9 rewrite was not clean-room and is not the basis for the current MIT implementation.
 
-Prior revisions noted that proof terms in `Emergent/Modal.lean` were adapted from Christoph Benzmüller (arXiv:2609.26806v3), licensed under CC BY 4.0, which blocked a strict MIT-only distribution.
+## Process used for the current candidate
 
-In accordance with the handoff protocol in `RELEASE_CHECKLIST.md`, `Emergent/Modal.lean` has been completely reimplemented from first principles in Lean 4 under the MIT license:
-- The implementation directly formalizes Dana Scott's (1970) variant of Gödel's ontological argument without using or adapting Benzmüller's CC BY 4.0 proof scripts.
-- The mathematical API, definitions (`box`, `diamond`, `godlike`, `essence`, `necessaryExistence`, `ScottAxioms`, `principal`, `LocalUltrafilter`), and all 53 theorem statements are strictly preserved.
-- The entire project is now 100% MIT-licensed code. The MIT-only release blocker is **RESOLVED**.
+- The specifier had seen the previous source and did not act as implementer.
+- The specifier passed only formal definitions, Scott axiom structure and exact theorem statements. No prior theorem proof bodies, source comments or repository checkout were included.
+- A separate AI implementer was started with no inherited conversation history and no source access; it returned the current module and attested it did not access source files.
+- The source/output hashes and limits of this record are in [PROVENANCE_DOSSIER.md](PROVENANCE_DOSSIER.md).
+
+The current candidate does not use upstream Lean proof bodies. This record documents the implementation process, not a legal opinion. The project owner accepts responsibility for proceeding on this basis.

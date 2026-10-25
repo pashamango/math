@@ -72,8 +72,9 @@
   "modules": {
     "Emergent/Modal.lean": {
       "theorems": 13,
-      "author": "Mindrock",
-      "license": "MIT"
+      "author": "Pavel Cherkashin",
+      "license": "MIT",
+      "provenance": "Reimplemented by an isolated AI task from an API-only specification; no upstream proof bodies supplied."
     },
     "Emergent/Models.lean": {
       "theorems": 11,
