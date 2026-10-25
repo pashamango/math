@@ -17,7 +17,7 @@ Future independent areas may include `number-theory/`, `dynamics/`, `probability
 
 Every package must distinguish (1) machine-checked *conditional* theorem statements, (2) assumptions and nonstandard axioms, (3) separately checked compilation/kernel evidence, and (4) scientific interpretation or speculation. Reports of successful builds are evidence, not independent re-execution.
 
-Emergent Attractor contains **7 substantive Lean modules and 53 theorem declarations**. GitHub build and axiom-audit evidence, exact claims and remaining release gates are linked from its package README.
+Emergent Attractor contains **7 substantive Lean modules and 53 theorem declarations**. GitHub build and axiom-audit evidence, exact claims and release receipt are linked from its package README.
 
 ## License and upstream research
 
