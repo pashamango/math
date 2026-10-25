@@ -8,8 +8,10 @@ A collection of reproducible formal mathematics, proof experiments, countermodel
 
 | Area | Package | Scope | Release gate |
 | --- | --- | --- | --- |
-| [Ontology](ontology/) | [Emergent Attractor](ontology/emergent-attractor/) | Modal logic, recursive positivity, fixed points, finite-rank reachability and countermodels | Build, audit, fault injection and kernel replay passed; MIT-only rights gate open |
+| [Ontology](ontology/) | [Emergent Attractor](ontology/emergent-attractor/) | Modal logic, recursive positivity, fixed points, finite-rank reachability and countermodels | v0.1.0 released after build, axiom audit, fault injection and kernel replay passed |
 | [Verification](docs/SSO.md) | [SSO](src/pashamango/math/sso/) | Scientific Objects on a Hash Sphere: canonical JSON framing, SHA-256 rarity, affine cycles | Python unittest suite passing; golden vectors pinned |
+
+Read the [author's interpretive essay](ontology/emergent-attractor/docs/ESSAY.md) alongside the formal claims and verification record.
 
 Future independent areas may include `number-theory/`, `dynamics/`, `probability/`, and `formal-methods/`. Dependencies and Lean toolchains belong to each package rather than to a shared root `lakefile`.
 
@@ -17,7 +19,7 @@ Future independent areas may include `number-theory/`, `dynamics/`, `probability
 
 Every package must distinguish (1) machine-checked *conditional* theorem statements, (2) assumptions and nonstandard axioms, (3) separately checked compilation/kernel evidence, and (4) scientific interpretation or speculation. Reports of successful builds are evidence, not independent re-execution.
 
-Emergent Attractor contains **7 substantive Lean modules and 53 theorem declarations**. GitHub build and axiom-audit evidence, exact claims and remaining release gates are linked from its package README.
+Emergent Attractor contains **7 substantive Lean modules and 53 theorem declarations**. GitHub build and axiom-audit evidence, exact claims and release receipt are linked from its package README.
 
 ## License and upstream research
 
