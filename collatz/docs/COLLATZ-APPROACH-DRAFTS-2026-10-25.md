@@ -1,32 +1,58 @@
-# Academic Outreach Draft Letters: Project Collatz
+# Academic Outreach Approach Drafts: Project Collatz
 **Date:** 2026-10-25  
-**Project:** Science PM (`MIN-231`) / Project Collatz  
-**Status:** DRAFT / PENDING PRINCIPAL APPROVAL  
+**Project:** Science PM (`MIN-231`, `MIN-233`) / Project Collatz  
+**Status:** 🚨 **PRELIMINARY DRAFTS — ON HOLD PENDING COLLATZ v0.1.0 RELEASE** 🚨  
 **Protocol Gate:** 🚨 **STRICTLY BLOCKED / NOTHING HAS BEEN SENT.** 🚨  
-*Mandate: No automated sending. Each email is subject to Principal Pavel Cherkashin's manual review and explicit single-tap approval for both the recipient and the exact letter text.*
 
 ---
 
-## 1. Outreach Governance & Protocol Guardrails
+## 1. Context & Operational Status (2026-10-25)
 
-* **Approved Candidates for Potential Initial Outreach (3 Scholars):**
-  1. **Prof. Jeffrey C. Lagarias** (University of Michigan) — Theoretical foundation & 3x+1 bibliographic reference.
-  2. **Prof. Jeffrey Shallit** (University of Waterloo) — Automatic sequences, $\varphi$-words, and automated verification (`Walnut`).
-  3. **Dr. David Barina** (Brno University of Technology) — Supercomputing computational verification up to $2^{68}$.
-* **Deferred Candidates:**
-  - Remaining 13 core scholars and 3 appendix scholars are cataloged for institutional context only. No outreach will be prepared or queued without separate explicit direction from Pavel.
-* **Core Non-Claims Preserved in All Letters:**
-  - Clear statement that the work is an open-source Lean 4 formalization and verification architecture, NOT a proof of the Collatz conjecture.
-  - Explicit recognition that the completeness of the backward reachability tree $G_0/G_1$ on $\mathbb{N}^+$ is itself the Collatz conjecture.
+* **Development State in Project Collatz:**
+  * `MIN-220` (M2: ReverseTree mod-6 characterization, `validPath_yields_no11`, `no11_not_all_realizable`) — **PASS / DONE**.
+  * `MIN-219` (M0/M1: Lake scaffold, `PhiWords`, $011 \to 100$ reduction, `evalFib`, `evalPhi`) — **Todo / Rework**.
+  * `MIN-221` (M3: CacheCheck, $S \cdot \tau$ linear path checker, backward memoization) — **Todo / Rework**.
+  * **Result:** Release `collatz-v0.1.0` has **not** been cut yet; the preprint article is in draft package stage.
+* **Science PM Deliverable Status:**
+  * Contacts Catalog: `collatz-contacts-2026-10-25.md` (16 core scholars + 3 appendix specialists; verified public profiles).
+  * Publication Package: `collatz-paper-draft-package-2026-10-25.md` (Paper architecture, abstract, 81 Lean theorem map, non-claims).
+  * Outreach Approach: Direction check letters for 3 primary scholars (Lagarias, Shallit, Barina) — strictly without paper manuscript attached until release.
 
 ---
 
-## 2. Letter Draft 1: Prof. Jeffrey C. Lagarias (Doyen of the 3x+1 Problem)
+## 2. Inviolable Outreach Send Gate (3 Conditions)
 
+No email, message, DM, or contact may occur until **all three gates are satisfied**:
+
+1. **Gate 1: Release Gate** — Full completion and release of Collatz `v0.1.0` in Project Collatz (M0/M1, M2, and M3 passing all verification checks, zero `sorry`, clean axiom audit, release tag `collatz-v0.1.0` in `pashamango/math`).
+2. **Gate 2: Principal Approval Gate** — Explicit single-tap approval by Principal Pavel Cherkashin on the final text for each specific individual.
+3. **Gate 3: Identity & Address Re-Verification Gate** — Re-verification of recipient email address on the exact day of dispatch (specifically noting Greenfeld, Laarhoven, and de Weger whose institutional affiliations or emails must be re-confirmed before queuing).
+
+---
+
+## 3. Recipient Categorization
+
+### A. Tier 1: Primary Scholars for Initial Direction Check (3 Scholars)
+These three candidates represent the primary academic touchpoints once the release gate opens:
+1. **Prof. Jeffrey C. Lagarias** (University of Michigan) — Theoretical foundation, 3x+1 bibliographic surveys, 2-adic dynamics.
+2. **Prof. Jeffrey Shallit** (University of Waterloo) — Combinatorics on words, Fibonacci representations (`no11`), automated verification (`Walnut`).
+3. **Dr. David Barina** (Brno University of Technology) — Computational verification up to $2^{68}$, trajectory verification algorithms.
+
+### B. Tier 2: Deferred Scholars (13 Core + 3 Appendix — Strictly Cataloged, No Drafts Prepared)
+- **Collatz & Number Theory Core:** Terence Tao (UCLA), Marc Chamberland (Grinnell), Alex Kontorovich (Rutgers), Rachel Greenfeld (Northwestern; *re-verify email*), Tomás Oliveira e Silva (Aveiro), Thijs Laarhoven (TU Eindhoven / NXP; *re-verify email*), Benne de Weger (TU Eindhoven; *re-verify email*).
+- **Words & Automata:** Jean-Paul Allouche (CNRS / IMJ-PRG), Michel Rigo (Liège), Manon Stipulanti (Liège), Valérie Berthé (CNRS / IRIF).
+- **Lean Formalization:** Kevin Buzzard (Imperial College London), Patrick Massot (Paris-Saclay).
+- **Appendix (Verification Pending):** Günther J. Wirsching (KU Eichstätt), Shalom Eliahou (ULCO), Ilia Krasikov (Brunel).
+
+---
+
+## 4. Draft Letters for Tier 1 Scholars (Pending Gates)
+
+### Draft 1: Prof. Jeffrey C. Lagarias (Doyen of the 3x+1 Problem)
 * **To:** `lagarias@umich.edu`
 * **From:** Pavel Cherkashin (`pavel@mindrock.capital`)
 * **Subject:** Open-source Lean 4 formalization of Collatz structures (modular reverse tree and phi-words)
-* **Status:** Draft / Pending Pavel's single tap (NOT SENT)
+* **Status:** 🚨 DRAFT — ON HOLD (NOT SENT)
 
 ```text
 Dear Professor Lagarias,
@@ -60,12 +86,11 @@ pavel@mindrock.capital
 
 ---
 
-## 3. Letter Draft 2: Prof. Jeffrey Shallit (Combinatorics on Words & Automated Verification)
-
+### Draft 2: Prof. Jeffrey Shallit (Combinatorics on Words & Automated Verification)
 * **To:** `shallit@uwaterloo.ca`
 * **From:** Pavel Cherkashin (`pavel@mindrock.capital`)
 * **Subject:** Lean 4 formalization of Fibonacci words and 011 -> 100 rewrite termination (Project Collatz)
-* **Status:** Draft / Pending Pavel's single tap (NOT SENT)
+* **Status:** 🚨 DRAFT — ON HOLD (NOT SENT)
 
 ```text
 Dear Professor Shallit,
@@ -98,12 +123,11 @@ pavel@mindrock.capital
 
 ---
 
-## 4. Letter Draft 3: Dr. David Barina (Computational Collatz Verification)
-
+### Draft 3: Dr. David Barina (Computational Collatz Verification)
 * **To:** `ibarina@fit.vutbr.cz`
 * **From:** Pavel Cherkashin (`pavel@mindrock.capital`)
 * **Subject:** Lean 4 trajectory verification and backward path checking (Project Collatz)
-* **Status:** Draft / Pending Pavel's single tap (NOT SENT)
+* **Status:** 🚨 DRAFT — ON HOLD (NOT SENT)
 
 ```text
 Dear Dr. Barina,
@@ -133,7 +157,10 @@ pavel@mindrock.capital
 
 ---
 
-## 5. Protocol Verification
-- [x] All three drafts explicitly disclaim any proof of the Collatz conjecture.
-- [x] Reverse tree completeness is explicitly noted as an open hypothesis.
-- [x] Strict gate maintained: NOT SENT; requires Pavel Cherkashin's tap.
+## 5. Protocol Checklist & Invariants
+
+- [x] **No Claims of Conjecture Proof:** Explicitly disclaims proof of Collatz in all documents and draft letters.
+- [x] **Completeness Equivalent to Conjecture:** Reverse tree completeness on all $\mathbb{N}^+$ is identified as equivalent to the open conjecture.
+- [x] **Direction Check Only:** Letters are designed for direction check without manuscript attachment until release.
+- [x] **Zero Outreach Executed:** No emails, letters, DMs, or submissions have been made.
+- [x] **Status Held on Hold:** Locked until Collatz v0.1.0 release is tagged and Pavel Cherkashin gives manual approval.
