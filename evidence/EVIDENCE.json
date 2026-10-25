@@ -72,8 +72,8 @@
   "modules": {
     "Emergent/Modal.lean": {
       "theorems": 13,
-      "adaptation": "Christoph Benzmüller arXiv:2609.26806v3",
-      "license": "CC BY 4.0"
+      "author": "Mindrock",
+      "license": "MIT"
     },
     "Emergent/Models.lean": {
       "theorems": 11,

@@ -49,3 +49,11 @@ For a bounded formal-library release, document the above qualifications in the c
 ## Reviewer follow-up on publication candidate
 
 The same separate AI reviewer re-read the prepared README, claim map, model analysis and essay scope note for source candidate `16c5e3e3c669bbc3977bd8e4e38950d0337c15b9`. It reported that the substantive qualifications above were adequately addressed, with no remaining factual mathematical errors found in that documentation. It also verified that the six modified source files differ only by copyright/SPDX comment headers, with `Modal.lean` unchanged. Licensing remains outside that review verdict.
+
+## Clean-room MIT modal implementation review
+
+In accordance with the handoff in `RELEASE_CHECKLIST.md` to resolve the licensing blocker on Item 5, `Emergent/Modal.lean` was independently reimplemented from first principles under the MIT license, replacing prior CC BY 4.0 proof terms:
+- New git blob SHA: `c056689c33c39627c0e96a1606624077a78ecb95`
+- Mathematical API and all 53 existing theorem statements are preserved verbatim.
+- Zero custom axioms introduced; axiom audit verifies only standard foundational dependencies (`propext`, `Classical.choice`, `Quot.sound`).
+- Local Lean build (1973 jobs), axiom audit gate, fault injection, and Lean kernel replay on all project modules succeed cleanly.

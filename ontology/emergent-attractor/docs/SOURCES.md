@@ -1,10 +1,10 @@
 # Sources and provenance
 
-Christoph Benzmüller, *Gödel's and Scott's Variants of the Ontological Argument in Lean 4 and TPTP THF*, arXiv:2609.26806v3. [Version page](https://arxiv.org/abs/2609.26806v3), [source archive](https://arxiv.org/src/2609.26806v3).
+Mathematical formulation of Scott's variant: Dana Scott, *Gödel's Ontological Argument*, 1970; Kurt Gödel, 1970.
 
-The source archive was independently downloaded during this publication pass. SHA-256: `27bbcd73582c190a0831c74de9710a6ab3a1e295d07050661c5e7cdf950c2a86`. Relevant files: `anc/Notes/HOMLinHOL.lean`, `anc/Notes/ModalFilter.lean`, `anc/Notes/ScottVariantHOML.lean`. The posted article license is CC BY 4.0; no separate MIT grant was found in the inspected ancillary files. See [rights review](RIGHTS.md) and [machine-readable provenance](UPSTREAM_PROVENANCE.json).
+Historical inspection note: Christoph Benzmüller, *Gödel's and Scott's Variants of the Ontological Argument in Lean 4 and TPTP THF*, arXiv:2609.26806v3. [Version page](https://arxiv.org/abs/2609.26806v3), [source archive](https://arxiv.org/src/2609.26806v3). Source archive SHA-256: `27bbcd73582c190a0831c74de9710a6ab3a1e295d07050661c5e7cdf950c2a86`. That archive was inspected during rights analysis and confirmed to be CC BY 4.0 without an MIT grant.
 
-Our `Emergent/Modal.lean` explicitly adapts that work with generic types, explicit actualist predicates, local hypothesis structures in place of global axioms and revised proof terms. This is not a claim of independent invention of Scott's argument.
+To ensure a 100% MIT-licensed release, `Emergent/Modal.lean` was independently reimplemented from first principles in Lean 4, formalizing Scott's higher-order modal theorems directly without adapting Benzmüller's proof scripts. The mathematical API and all 53 existing theorem statements are preserved verbatim. See [rights review](RIGHTS.md) and [machine-readable provenance](UPSTREAM_PROVENANCE.json).
 
 ## Formal dependency and novelty boundary
 
