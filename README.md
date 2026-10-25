@@ -8,8 +8,10 @@ A collection of reproducible formal mathematics, proof experiments, countermodel
 
 | Area | Package | Scope | Release gate |
 | --- | --- | --- | --- |
-| [Ontology](ontology/) | [Emergent Attractor](ontology/emergent-attractor/) | Modal logic, recursive positivity, fixed points, finite-rank reachability and countermodels | Build, audit, fault injection and kernel replay passed; MIT-only rights gate open |
+| [Ontology](ontology/) | [Emergent Attractor](ontology/emergent-attractor/) | Modal logic, recursive positivity, fixed points, finite-rank reachability and countermodels | Build, audit, fault injection and kernel replay passed; v0.1.0 released; verification passed |
 | [Verification](docs/SSO.md) | [SSO](src/pashamango/math/sso/) | Scientific Objects on a Hash Sphere: canonical JSON framing, SHA-256 rarity, affine cycles | Python unittest suite passing; golden vectors pinned |
+
+Read the [author's interpretive essay](ontology/emergent-attractor/docs/ESSAY.md) alongside the formal claims and verification record.
 
 Future independent areas may include `number-theory/`, `dynamics/`, `probability/`, and `formal-methods/`. Dependencies and Lean toolchains belong to each package rather than to a shared root `lakefile`.
 
