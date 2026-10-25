@@ -1,0 +1,76 @@
+name: Emergent Attractor Lean verification
+on:
+  push:
+    branches: [main]
+    paths: ['ontology/emergent-attractor/**', '.github/workflows/emergent-attractor.yml']
+  pull_request:
+    paths: ['ontology/emergent-attractor/**', '.github/workflows/emergent-attractor.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: emergent-attractor-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  lean-build-and-audit:
+    name: Lean build and axiom audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+        working-directory: ontology/emergent-attractor
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Initialize receipt
+        run: |
+          mkdir -p verification
+          git rev-parse HEAD > verification/checkout-sha.txt
+          printf '%s\n' "$GITHUB_SHA" > verification/event-sha.txt
+          sha256sum lean-toolchain lakefile.lean lake-manifest.json Emergent.lean AxiomAudit.lean Emergent/*.lean > verification/source-sha256.txt
+      - name: Install pinned Lean toolchain
+        run: |
+          curl --fail --location --retry 3 https://raw.githubusercontent.com/leanprover/elan/9605b24b08cf68b78dce0014b6fa01be1f8e2cee/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          sh "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none --no-modify-path
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install "$(cat lean-toolchain)"
+      - name: Verify pinned toolchain
+        run: |
+          test "$(cat lean-toolchain)" = "leanprover/lean4:v4.34.1"
+          lean --version | tee verification/toolchain.log
+          lean --version | grep -E '^Lean \(version 4\.34\.1([, )])'
+          lake --version >> verification/toolchain.log
+      - name: Fetch pinned dependencies and mathlib cache
+        run: |
+          lake exe cache get 2>&1 | tee verification/dependencies.log
+          git diff --exit-code -- lean-toolchain lakefile.lean lake-manifest.json
+      - name: Remove local package build products
+        run: python3 -c "import shutil; shutil.rmtree('.lake/build', ignore_errors=True)"
+      - name: Lake build
+        id: build
+        run: |
+          lake build 2>&1 | tee verification/build.log
+          printf '0\n' > verification/build-exit-code.txt
+      - name: Axiom audit
+        id: audit
+        run: |
+          lake env lean AxiomAudit.lean 2>&1 | tee verification/axiom-audit.log
+          python3 scripts/check_audit.py verification/axiom-audit.log | tee verification/axiom-summary.log
+          printf '0\n' > verification/audit-exit-code.txt
+      - name: Test audit gate with fault injection
+        run: python3 scripts/test_audit_gate.py 2>&1 | tee verification/gate-tests.log
+      - name: Kernel replay of all project modules
+        run: |
+          lake env leanchecker --verbose Emergent 2>&1 | tee verification/kernel-replay.log
+          printf '0\n' > verification/kernel-exit-code.txt
+      - name: Preserve verification receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: emergent-attractor-verification-${{ github.sha }}
+          path: ontology/emergent-attractor/verification/
+          if-no-files-found: error
+          retention-days: 90

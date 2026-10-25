@@ -1,3 +1,4 @@
+# Historical source snapshot from MIN-186; not a checksum manifest for the current candidate.
 30a964a223fe2620afa775898c74395a3e87ccfce0f1f3da74a04d079b770b37  ontology/emergent-attractor/AxiomAudit.lean
 53ed6429c618290c96c25342e03837497f0351980d592cf52e88ce1388bfdd57  ontology/emergent-attractor/Emergent.lean
 0adf12dfeddcc625f766843e78a2536403d3bb0025e5df43a8ea639e185298c1  ontology/emergent-attractor/lakefile.lean

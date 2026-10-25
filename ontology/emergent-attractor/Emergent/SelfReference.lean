@@ -1,3 +1,7 @@
+/-
+Copyright (c) 2026 Pavel Cherkashin.
+SPDX-License-Identifier: MIT
+-/
 import Mathlib.Order.FixedPoints
 
 namespace Emergent

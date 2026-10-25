@@ -16,7 +16,7 @@
 - Inspect toolchain availability and package dependency pinned revisions. Lean version requested by PR #4 is `leanprover/lean4:v4.34.1` and mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`. Use project-local toolchain, no global upgrade. If unavailable, report download size/budget & wait for scoped approval instead of blind install.
 - If safe and already authorized, run in `ontology/emergent-attractor`: `lake build`, `lake env lean AxiomAudit.lean`, and `lake env leanchecker Emergent` (check this exact CLI against installed Lean 4.34.1 first). Record full exit status, source commit/toolchain and every unexpected axiom. Historical archive logs do **not** satisfy independent replay.
 - Audit claim boundaries: `ScottAxioms` assumptions, `leastTheory` monotone lfp and empty identity example, `SeededExample` nonempty positive seed, `Enrichment` contraction assumptions, `Models` countermodels. Don't assert that a coherent lfp is nonempty without seed; report proof gaps.
-- Independently review upstream source license and adapted-code attribution in `Emergent/Modal.lean`; retain CC BY 4.0 credit and Apache allocation where appropriate. Fail closed if source rights cannot be confirmed.
+- Independently review upstream source license and adapted-code attribution in `Emergent/Modal.lean`; retain CC BY 4.0 credit and MIT allocation for original project contributions where appropriate. Fail closed if source rights cannot be confirmed.
 
 ## Pass 2 — single proof portfolio item
 

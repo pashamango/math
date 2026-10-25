@@ -2,13 +2,13 @@
 
 A collection of reproducible formal mathematics, proof experiments, countermodels, and reusable Lean libraries.
 
-> **Private staging — not yet a public release.** No theorem here establishes physical existence, the truth of its modeling premises, or an unrelated open conjecture.
+> **Public research repository; package releases have their own gates.** No theorem here establishes physical existence, the truth of its modeling premises, or an unrelated open conjecture.
 
 ## Packages
 
 | Area | Package | Scope | Release gate |
 | --- | --- | --- | --- |
-| [Ontology](ontology/) | [Emergent Attractor](ontology/emergent-attractor/) | Modal logic, recursive positivity, fixed points, finite-rank reachability and countermodels | Independent Lean replay and attribution review pending |
+| [Ontology](ontology/) | [Emergent Attractor](ontology/emergent-attractor/) | Modal logic, recursive positivity, fixed points, finite-rank reachability and countermodels | Build, audit, fault injection and kernel replay passed; MIT-only rights gate open |
 | [Verification](docs/SSO.md) | [SSO](src/pashamango/math/sso/) | Scientific Objects on a Hash Sphere: canonical JSON framing, SHA-256 rarity, affine cycles | Python unittest suite passing; golden vectors pinned |
 
 Future independent areas may include `number-theory/`, `dynamics/`, `probability/`, and `formal-methods/`. Dependencies and Lean toolchains belong to each package rather than to a shared root `lakefile`.
@@ -17,7 +17,7 @@ Future independent areas may include `number-theory/`, `dynamics/`, `probability
 
 Every package must distinguish (1) machine-checked *conditional* theorem statements, (2) assumptions and nonstandard axioms, (3) separately checked compilation/kernel evidence, and (4) scientific interpretation or speculation. Reports of successful builds are evidence, not independent re-execution.
 
-The initial Emergent Attractor research archive reports **7 substantive Lean modules and 53 theorem declarations**. A read-only file audit has checked this count; a fresh clean-environment kernel replay remains pending.
+Emergent Attractor contains **7 substantive Lean modules and 53 theorem declarations**. GitHub build and axiom-audit evidence, exact claims and remaining release gates are linked from its package README.
 
 ## License and upstream research
 
@@ -25,7 +25,7 @@ Original code is released under the [MIT License](LICENSE), **except where other
 
 ## Release and contributions
 
-Read [release gates](docs/RELEASE_GATES.md), [CONTRIBUTING](CONTRIBUTING.md), and [SECURITY](SECURITY.md). Releases require pinned dependencies, independent build evidence, an axiom audit, license review, and a checked artifact hash. The repository is kept private until these gates and an explicit publication decision are satisfied.
+Read [release gates](docs/RELEASE_GATES.md), [CONTRIBUTING](CONTRIBUTING.md), and [SECURITY](SECURITY.md). Releases require pinned dependencies, independent build evidence, an axiom audit, license review, and a checked artifact hash. A public source tree does not imply that a package has completed its versioned release gates.
 
 Project coordination: [Invariant Foundry](https://linear.app/mindrock/project/invariant-foundry-research-to-products-c7c4dc27611f). Research provenance: [Scheduler Commons #168](https://github.com/pashamango/minutta-rp-pr-cycle-lab/issues/168) (permission-restricted).
 
