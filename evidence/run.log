@@ -1,5 +1,3 @@
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.00s
-     Running `target/debug/amde-navigator-cli`
 ===============================================================================
   AMDE Navigator: Type System Specification & Reference Implementation
   Ticket: MIN-79 | PRD-26 | Acceptance Benchmark: RP-002
@@ -59,28 +57,45 @@
   n = 840 -> Composed output: [2^3, 3^1, 5^1]
   => Composition Algebra verified.
 
---- 7. Claim Registry & Audit Manifest ---
-  Total claims logged: 18
-  All claims verified: true
-    [CLAIM-MIN79-0001-48f94e0b] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
-    [CLAIM-MIN79-0002-c1dabfed] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
-    [CLAIM-MIN79-0003-4f7c5270] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
-    [CLAIM-MIN79-0004-ac38d744] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
-    [CLAIM-MIN79-0005-0279bf62] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
-    [CLAIM-MIN79-0006-bdb39724] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
-    [CLAIM-MIN79-0007-9bb05705] PrimeFactorizationIso (ISO) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
-    [CLAIM-MIN79-0008-92754cd9] ValuationTruncationLossy (LOSSY) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
-    [CLAIM-MIN79-0009-288b1d5b] ValuationTruncationLossy (LOSSY) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
-    [CLAIM-MIN79-0010-cb1f8eb3] ValuationTruncationLossy (LOSSY) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
-    [CLAIM-MIN79-0011-49c80c28] ValuationTruncationLossy (LOSSY) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
-    [CLAIM-MIN79-0012-82c5f96c] ValuationTruncationLossy (LOSSY) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
-    [CLAIM-MIN79-0013-dc4eddce] NumericalXiApproximate (APPROXIMATE) | Analytic Coordinate Domain (R) -> Numerical Xi Result Space (Float + Tolerance) | verified=true
-    [CLAIM-MIN79-0014-d8a20260] NumericalXiApproximate (APPROXIMATE) | Analytic Coordinate Domain (R) -> Numerical Xi Result Space (Float + Tolerance) | verified=true
-    [CLAIM-MIN79-0015-bb8ffcc0] NumericalXiApproximate (APPROXIMATE) | Analytic Coordinate Domain (R) -> Numerical Xi Result Space (Float + Tolerance) | verified=true
-    [CLAIM-MIN79-0016-385f7a64] NumericalXiApproximate (APPROXIMATE) | Analytic Coordinate Domain (R) -> Numerical Xi Result Space (Float + Tolerance) | verified=true
-    [CLAIM-MIN79-0017-ebe893a2] ValuationAdjointEmbedding (ADJOINT) | Truncated Prime Valuation Space (N^K) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
-    [CLAIM-MIN79-0018-10d4ef72] ValuationTruncationLossy ∘ PrimeFactorizationIso (LOSSY) | Natural Numbers Monoid (N+, *) -> Truncated Prime Valuation Space (N^K) | verified=true
+--- 7. Transformation Claim Receipts & Audit Manifest ---
+  Total receipts logged: 18
+  All receipts verified: true
+    [CLAIM-MIN79-0001-21320a6d] PrimeFactorizationIso (ISO, THEOREM) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0002-c3cecaa3] PrimeFactorizationIso (ISO, THEOREM) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0003-7e383278] PrimeFactorizationIso (ISO, THEOREM) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0004-63f9953b] PrimeFactorizationIso (ISO, THEOREM) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0005-350f526d] PrimeFactorizationIso (ISO, THEOREM) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0006-7b38a7e1] PrimeFactorizationIso (ISO, THEOREM) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0007-677be2fa] PrimeFactorizationIso (ISO, THEOREM) | Natural Numbers Monoid (N+, *) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0008-1593d227] ValuationTruncationLossy (LOSSY, THEOREM) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
+    [CLAIM-MIN79-0009-600b11d3] ValuationTruncationLossy (LOSSY, THEOREM) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
+    [CLAIM-MIN79-0010-28e198fd] ValuationTruncationLossy (LOSSY, THEOREM) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
+    [CLAIM-MIN79-0011-4e576f50] ValuationTruncationLossy (LOSSY, THEOREM) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
+    [CLAIM-MIN79-0012-e8cd4302] ValuationTruncationLossy (LOSSY, THEOREM) | Prime Valuation Direct Sum Monoid (Primes ->0 N) -> Truncated Prime Valuation Space (N^K) | verified=true
+    [CLAIM-MIN79-0013-0208fd32] NumericalXiApproximate (APPROXIMATE, THEOREM) | Analytic Coordinate Domain (R) -> Numerical Xi Result Space (Float + Tolerance) | verified=true
+    [CLAIM-MIN79-0014-90397da7] NumericalXiApproximate (APPROXIMATE, THEOREM) | Analytic Coordinate Domain (R) -> Numerical Xi Result Space (Float + Tolerance) | verified=true
+    [CLAIM-MIN79-0015-07497f97] NumericalXiApproximate (APPROXIMATE, THEOREM) | Analytic Coordinate Domain (R) -> Numerical Xi Result Space (Float + Tolerance) | verified=true
+    [CLAIM-MIN79-0016-6af86e6c] NumericalXiApproximate (APPROXIMATE, THEOREM) | Analytic Coordinate Domain (R) -> Numerical Xi Result Space (Float + Tolerance) | verified=true
+    [CLAIM-MIN79-0017-dfbed2ac] ValuationAdjointEmbedding (ADJOINT, THEOREM) | Truncated Prime Valuation Space (N^K) -> Prime Valuation Direct Sum Monoid (Primes ->0 N) | verified=true
+    [CLAIM-MIN79-0018-83fcc506] ValuationTruncationLossy ∘ PrimeFactorizationIso (LOSSY, THEOREM) | Natural Numbers Monoid (N+, *) -> Truncated Prime Valuation Space (N^K) | verified=true
+
+--- 8. Epistemic Claim Registry Seed from RP-002 (MIN-83) ---
+  Total RP-002 seeded claims: 8
+  Cryptographic hash integrity verified: true
+
+  [RP-002 Epistemic Matrix]
+  - [CLAIM-RP002-001] THEOREM        | Prime Factorization as Reversible Compiler       | kind: ISO         | verified: YES
+  - [CLAIM-RP002-002] THEOREM        | Golden Widths Asymptotic Convergence (Gn -> 1/2) | kind: LOSSY       | verified: YES
+  - [CLAIM-RP002-003] CONJECTURE     | Golden Scaling Dynamically Privileged            | kind: APPROXIMATE | verified: PENDING
+  - [CLAIM-RP002-004] CONJECTURE     | Collatz Golden Contraction                       | kind: LOSSY       | verified: PENDING
+  - [CLAIM-RP002-005] KNOWN THEOREM  | Li Positivity Criterion Equivalence with RH      | kind: APPROXIMATE | verified: YES
+  - [CLAIM-RP002-006] HEURISTIC      | Syracuse Heuristic Log-Drift 3/4                 | kind: LOSSY       | verified: PENDING
+  - [CLAIM-RP002-007] ANALOGY        | Perelman Monotonicity Transfer to Arithmetic Dynamics | kind: ADJOINT     | verified: PENDING
+  - [CLAIM-RP002-008] PROOF TARGET   | Collatz Descent Below Start (Finite Stopping Target) | kind: LOSSY       | verified: PENDING
+
+  [Anti-Silent-Promotion Check: PRD-26 Gate]
+  => Gate Enforced: Promotion METAPHOR -> PROOF TARGET blocked as expected (Direct or silent promotion skipping required intermediate validation gates is prohibited by PRD-26)
 
 ===============================================================================
-  ACCEPTANCE PASSED: All RP-002 examples typed, executed, and verified.
+  ACCEPTANCE PASSED: All RP-002 claims seeded, typed, and promotion gates verified.
 ===============================================================================

@@ -1,23 +1,18 @@
-   Compiling amde-navigator v0.1.0 (/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001)
-     Running `/Users/pavelcherkashin/.rustup/toolchains/stable-aarch64-apple-darwin/bin/rustc --crate-name test_claim_registry --edition=2021 tests/test_claim_registry.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 -C split-debuginfo=unpacked --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=c140b4ea777bf463 -C extra-filename=-41e5ad10d9bdafed --out-dir /Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps -C incremental=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/incremental -L dependency=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps --extern amde_navigator=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps/libamde_navigator-5e865dcad3ee17d3.rlib`
-     Running `/Users/pavelcherkashin/.rustup/toolchains/stable-aarch64-apple-darwin/bin/rustc --crate-name amde_navigator_cli --edition=2021 src/main.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 -C split-debuginfo=unpacked --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=a478bbb7d7cd4968 -C extra-filename=-1f93b274224a5b47 --out-dir /Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps -C incremental=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/incremental -L dependency=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps --extern amde_navigator=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps/libamde_navigator-5e865dcad3ee17d3.rlib`
-     Running `/Users/pavelcherkashin/.rustup/toolchains/stable-aarch64-apple-darwin/bin/rustc --crate-name test_navigator_types --edition=2021 tests/test_navigator_types.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 -C split-debuginfo=unpacked --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=fa453150bb9c2a4c -C extra-filename=-8b82a6968a1047dc --out-dir /Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps -C incremental=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/incremental -L dependency=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps --extern amde_navigator=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps/libamde_navigator-5e865dcad3ee17d3.rlib`
-     Running `/Users/pavelcherkashin/.rustup/toolchains/stable-aarch64-apple-darwin/bin/rustc --crate-name test_rp002_examples --edition=2021 tests/test_rp002_examples.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 -C split-debuginfo=unpacked --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=f752cca9b00c5c03 -C extra-filename=-94f5621df853cfb7 --out-dir /Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps -C incremental=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/incremental -L dependency=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps --extern amde_navigator=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps/libamde_navigator-5e865dcad3ee17d3.rlib`
-     Running `/Users/pavelcherkashin/.rustup/toolchains/stable-aarch64-apple-darwin/bin/rustc --crate-name amde_navigator --edition=2021 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 -C split-debuginfo=unpacked --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=adbaa698319ca9a4 -C extra-filename=-93e65bdef101e16c --out-dir /Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps -C incremental=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/incremental -L dependency=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps`
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.69s
-     Running `/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps/amde_navigator-93e65bdef101e16c`
+   Compiling amde-navigator v0.1.0 (/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-83-AMDE-CLAIM-REGISTRY-0001)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.96s
+     Running unittests src/lib.rs (/tmp/cargo-target/debug/deps/amde_navigator-93e65bdef101e16c)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
-     Running `/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps/amde_navigator_cli-1f93b274224a5b47`
+     Running unittests src/main.rs (/tmp/cargo-target/debug/deps/amde_navigator_cli-1f93b274224a5b47)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
-     Running `/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps/test_claim_registry-41e5ad10d9bdafed`
+     Running tests/test_claim_registry.rs (/tmp/cargo-target/debug/deps/test_claim_registry-41e5ad10d9bdafed)
 
 running 2 tests
 test test_sha256_known_vectors ... ok
@@ -25,29 +20,39 @@ test test_claim_receipt_and_registry ... ok
 
 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
-     Running `/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps/test_navigator_types-8b82a6968a1047dc`
+     Running tests/test_claim_registry_seed.rs (/tmp/cargo-target/debug/deps/test_claim_registry_seed-eb7e046833c267f8)
+
+running 6 tests
+test test_anti_silent_promotion_prohibition ... ok
+test test_strict_promotion_criteria_evidence_gates ... ok
+test test_end_to_end_ladder_promotion ... ok
+test test_rp002_seed_completeness_and_epistemic_types ... ok
+test test_export_formats ... ok
+test test_cryptographic_hash_integrity_and_tamper_detection ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/test_navigator_types.rs (/tmp/cargo-target/debug/deps/test_navigator_types-8b82a6968a1047dc)
 
 running 3 tests
-test test_composed_transformation_execution ... ok
-test test_navigator_object_creation_and_descriptor ... ok
 test test_transformation_kind_composition_algebra ... ok
+test test_navigator_object_creation_and_descriptor ... ok
+test test_composed_transformation_execution ... ok
 
 test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
-     Running `/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps/test_rp002_examples-94f5621df853cfb7`
+     Running tests/test_rp002_examples.rs (/tmp/cargo-target/debug/deps/test_rp002_examples-94f5621df853cfb7)
 
 running 4 tests
 test test_adjoint_bounds_galois_connection ... ok
-test test_rp002_prime_factorization_iso ... ok
 test test_rp002_truncation_lossy ... ok
+test test_rp002_prime_factorization_iso ... ok
 test test_rp002_numerical_xi_approximate ... ok
 
-test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
    Doc-tests amde_navigator
-     Running `/Users/pavelcherkashin/.rustup/toolchains/stable-aarch64-apple-darwin/bin/rustdoc --edition=2021 --crate-type lib --color auto --crate-name amde_navigator --test src/lib.rs --test-run-directory /Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001 --extern amde_navigator=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps/libamde_navigator-5e865dcad3ee17d3.rlib -L dependency=/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/target/debug/deps -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' --error-format human`
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
-

@@ -274,18 +274,54 @@ fn main() {
     println!("  => Composition Algebra verified.\n");
 
     // -------------------------------------------------------------------------
-    // 7. Claim Registry Summary
+    // 7. Claim Registry Summary (Transformation Receipts)
     // -------------------------------------------------------------------------
-    println!("--- 7. Claim Registry & Audit Manifest ---");
-    println!("  Total claims logged: {}", registry.len());
-    println!("  All claims verified: {}", registry.verify_all());
+    println!("--- 7. Transformation Claim Receipts & Audit Manifest ---");
+    println!("  Total receipts logged: {}", registry.len());
+    println!("  All receipts verified: {}", registry.verify_all());
     assert!(registry.verify_all());
 
     for claim in registry.claims() {
         println!("    {}", claim);
     }
+    println!();
+
+    // -------------------------------------------------------------------------
+    // 8. Epistemic Claim Registry Seed from RP-002 (MIN-83 / PRD-26)
+    // -------------------------------------------------------------------------
+    println!("--- 8. Epistemic Claim Registry Seed from RP-002 (MIN-83) ---");
+    let seed_registry = ClaimRegistry::seed_rp002();
+    println!("  Total RP-002 seeded claims: {}", seed_registry.epistemic_len());
+    println!("  Cryptographic hash integrity verified: {}", seed_registry.verify_seed_integrity());
+    assert_eq!(seed_registry.epistemic_len(), 8);
+    assert!(seed_registry.verify_seed_integrity());
+
+    println!("\n  [RP-002 Epistemic Matrix]");
+    for claim in seed_registry.epistemic_claims() {
+        let trans_str = claim.transformation_kind.map(|k| k.as_str()).unwrap_or("—");
+        println!(
+            "  - [{}] {:<14} | {:<48} | kind: {:<11} | verified: {}",
+            claim.claim_id,
+            claim.epistemic_type.display_name(),
+            claim.title,
+            trans_str,
+            if claim.verified { "YES" } else { "PENDING" }
+        );
+    }
+
+    println!("\n  [Anti-Silent-Promotion Check: PRD-26 Gate]");
+    let leap_check = amde_navigator::claim::EpistemicType::is_valid_promotion(
+        amde_navigator::claim::EpistemicType::Metaphor,
+        amde_navigator::claim::EpistemicType::ProofTarget,
+    );
+    match leap_check {
+        Err(amde_navigator::claim::PromotionError::SilentPromotionDisallowed { from, to, reason }) => {
+            println!("  => Gate Enforced: Promotion {} -> {} blocked as expected ({})", from, to, reason);
+        }
+        _ => panic!("Silent promotion must be strictly rejected"),
+    }
 
     println!("\n===============================================================================");
-    println!("  ACCEPTANCE PASSED: All RP-002 examples typed, executed, and verified.");
+    println!("  ACCEPTANCE PASSED: All RP-002 claims seeded, typed, and promotion gates verified.");
     println!("===============================================================================");
 }

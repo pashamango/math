@@ -1,43 +1,119 @@
 {
-  "ticket": "MIN-79",
-  "task_id": "task-4dd7e49563cd",
-  "builder": "agy",
-  "title": "[AMDE] Navigator — type system spec (Rust reference)",
-  "worktree": "/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001",
-  "status": "done",
-  "summary": "Navigator formalization (X, R, Sigma, tau, I) and transformation category (ISO, ADJOINT, LOSSY, APPROXIMATE) complete. Rust reference implementation with strongly typed transitions. All RP-002 examples (prime factorization=ISO, truncation=LOSSY, numerical xi=APPROXIMATE, plus valuation adjunction=ADJOINT) strictly typed, executed, and verified. 100% test pass (9 unit/integration tests), zero warnings, zero external dependencies, verified claim registry with cryptographic SHA-256 receipts.",
-  "acceptance": {
-    "navigator_formalization_x_r_sigma_tau_i": "PASS",
-    "transformation_kinds_iso_adjoint_lossy_approximate": "PASS",
-    "rp002_prime_factorization_iso": "PASS",
-    "rp002_truncation_lossy": "PASS",
-    "rp002_numerical_xi_approximate": "PASS",
-    "valuation_adjunction_galois_connection": "PASS",
-    "category_composition_algebra": "PASS",
-    "cryptographic_claim_registry": "PASS",
-    "cargo_test_suite": "PASS"
+  "ticket": "MIN-83",
+  "prd_reference": "PRD-26",
+  "task": "[AMDE-CORE] Claim registry seed from RP-002",
+  "builder": "agy@wolfram",
+  "reviewer": "Muse",
+  "timestamp": "2026-11-02T12:00:00Z",
+  "status": "COMPLETED_LOCALLY",
+  "handoff_blocker": "no_origin_remote",
+  "summary": "Seeded AMDE Claim Registry with 8 canonical claims from RP-002, established epistemic taxonomy (THEOREM, CONJECTURE, KNOWN THEOREM, HEURISTIC, ANALOGY, PROOF TARGET, FORMALIZATION, METAPHOR), formalized strict promotion criteria and anti-silent-promotion guards in Rust reference implementation.",
+  "acceptance_criteria": {
+    "claim_registry_seeded": true,
+    "epistemic_types_covered": [
+      "THEOREM",
+      "CONJECTURE",
+      "KNOWN THEOREM",
+      "HEURISTIC",
+      "ANALOGY",
+      "PROOF TARGET"
+    ],
+    "promotion_criteria_fixed": true,
+    "anti_silent_promotion_enforced": true,
+    "all_tests_passing": true,
+    "zero_unimplemented_or_stubs": true
   },
-  "modules": {
-    "object": "Formalization of NavigatorObject<X> tuple (X, R, Sigma, tau, I) with discrete, metric, and truncation topologies and information functionals",
-    "transformation": "Typed transitions: IsoTransformation, AdjointTransformation, LossyTransformation, ApproximateTransformation, and ComposedTransformation",
-    "claim": "Cryptographic SHA-256 receipt generation and ClaimRegistry verification engine",
-    "examples": {
-      "prime_factorization": "RP-002 Example 1: ISO round-trip bijection N+ <-> (Primes ->0 N), Delta I = 0, epsilon = 0",
-      "truncation": "RP-002 Example 2: LOSSY projection (Primes ->0 N) -> N^K, Delta I = sum_{p>pK} v_p ln(p), non-trivial fiber",
-      "numerical_xi": "RP-002 Example 3: APPROXIMATE Riemann/AMDE xi(s) evaluation with certified remainder bound epsilon <= tau",
-      "adjoint_bounds": "Example 4: ADJOINT Galois connection N^K <-> (Primes ->0 N), unit section identity and counit inequality"
+  "test_suite": {
+    "total_tests": 15,
+    "passed": 15,
+    "failed": 0,
+    "suites": [
+      {
+        "name": "test_claim_registry_seed.rs",
+        "tests": 6,
+        "status": "PASS"
+      },
+      {
+        "name": "test_claim_registry.rs",
+        "tests": 2,
+        "status": "PASS"
+      },
+      {
+        "name": "test_navigator_types.rs",
+        "tests": 3,
+        "status": "PASS"
+      },
+      {
+        "name": "test_rp002_examples.rs",
+        "tests": 4,
+        "status": "PASS"
+      }
+    ]
+  },
+  "seeded_claims": [
+    {
+      "claim_id": "CLAIM-RP002-001",
+      "title": "Prime Factorization as Reversible Compiler",
+      "epistemic_type": "THEOREM",
+      "transformation_kind": "ISO",
+      "verified": true,
+      "lean_symbol": "Amde.PrimeValuation.primeValuationMulEquiv"
+    },
+    {
+      "claim_id": "CLAIM-RP002-002",
+      "title": "Golden Widths Asymptotic Convergence (Gn -> 1/2)",
+      "epistemic_type": "THEOREM",
+      "transformation_kind": "LOSSY",
+      "verified": true,
+      "lean_symbol": "Amde.intersection_goldenSets"
+    },
+    {
+      "claim_id": "CLAIM-RP002-003",
+      "title": "Golden Scaling Dynamically Privileged",
+      "epistemic_type": "CONJECTURE",
+      "transformation_kind": "APPROXIMATE",
+      "verified": false,
+      "lean_symbol": null
+    },
+    {
+      "claim_id": "CLAIM-RP002-004",
+      "title": "Collatz Golden Contraction",
+      "epistemic_type": "CONJECTURE",
+      "transformation_kind": "LOSSY",
+      "verified": false,
+      "lean_symbol": null
+    },
+    {
+      "claim_id": "CLAIM-RP002-005",
+      "title": "Li Positivity Criterion Equivalence with RH",
+      "epistemic_type": "KNOWN THEOREM",
+      "transformation_kind": "APPROXIMATE",
+      "verified": true,
+      "citation": "Xian-Jin Li (1997); Bombieri & Lagarias (1999)"
+    },
+    {
+      "claim_id": "CLAIM-RP002-006",
+      "title": "Syracuse Heuristic Log-Drift 3/4",
+      "epistemic_type": "HEURISTIC",
+      "transformation_kind": "LOSSY",
+      "verified": false,
+      "citation": "Lagarias (1985)"
+    },
+    {
+      "claim_id": "CLAIM-RP002-007",
+      "title": "Perelman Monotonicity Transfer to Arithmetic Dynamics",
+      "epistemic_type": "ANALOGY",
+      "transformation_kind": "ADJOINT",
+      "verified": false,
+      "citation": "Perelman (2002)"
+    },
+    {
+      "claim_id": "CLAIM-RP002-008",
+      "title": "Collatz Descent Below Start (Finite Stopping Target)",
+      "epistemic_type": "PROOF TARGET",
+      "transformation_kind": "LOSSY",
+      "verified": false,
+      "lean_symbol": "Amde.DescentCertificate"
     }
-  },
-  "claim_registry_summary": {
-    "total_claims": 18,
-    "all_verified": true,
-    "claims_by_kind": {
-      "ISO": 7,
-      "LOSSY": 6,
-      "APPROXIMATE": 4,
-      "ADJOINT": 1
-    }
-  },
-  "evidence_bundle": "/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/evidence",
-  "manifest_sha256": "/Users/pavelcherkashin/ChitAkasha-Wolfram/worktrees/MIN-79-AMDE-NAVIGATOR-0001/evidence/MANIFEST.sha256"
+  ]
 }

@@ -44,7 +44,10 @@ pub mod examples;
 pub mod object;
 pub mod transformation;
 
-pub use claim::{sha256, ClaimReceipt, ClaimRegistry};
+pub use claim::{
+    sha256, ClaimReceipt, ClaimRegistry, EpistemicClaim, EpistemicType, PromotionCriteria,
+    PromotionError, PromotionEvent,
+};
 pub use object::{
     Carrier, InformationFunctional, NavigatorObject, ObjectDescriptor, RelationalStructure,
     Signature, Topology, TopologyKind,
